@@ -1,7 +1,33 @@
 body {
-  padding-top: 50px;
+  padding-top: 45px;
 }
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
+
+.search-row {
+	background-color: #333; 
+	width:100%;
+	margin:auto;
+	color:#fff;
+	font-family: 'Open Sans';
+    font-weight: 300;
+
+	opacity: 0.65; 
+    background-color: #333;
+
+}
+
+.keyword {
+	color:#2E9AFE;
+}
+
+.container-search {
+	background: url('../img/searchBackground.jpg');
+	background-size:     cover;                     
+    background-repeat:   no-repeat;
+    background-position: center center; 
+	margin: auto;
+	padding: 0px;
+	margin-left: 0px;
+		margin-right: 0px;
+width: 100%;
+	
 }
