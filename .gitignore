@@ -1,0 +1,4 @@
+# Solr log files
+solr/server/logs
+solr/server/solr/hsperfdata_*
+
