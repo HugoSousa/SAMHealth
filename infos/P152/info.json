@@ -1,0 +1,36 @@
+{
+	"patient": "P152",
+	"therapist": "Dra. Eunice Barbosa",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": null
+		},
+		{
+			"number": "4",
+			"date": null
+		},
+		{
+			"number": "8",
+			"date": null
+		},
+		{
+			"number": "12",
+			"date": null
+		},
+		{
+			"number": "16",
+			"date": null
+		},
+		{
+			"number": "17",
+			"date": null
+		},
+		{
+			"number": "18",
+			"date": null
+		}
+	]
+	
+}

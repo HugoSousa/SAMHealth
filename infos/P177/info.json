@@ -1,0 +1,28 @@
+{
+	"patient": "P177",
+	"therapist": "Dra. Isabel Basto",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": "2011-12-06"
+		},
+		{
+			"number": "4",
+			"date": "2012-01-04"
+		},
+		{
+			"number": "8",
+			"date": "2012-02-02"
+		},
+		{
+			"number": "12",
+			"date": "2012-04-12"
+		},
+		{
+			"number": "16",
+			"date": "2012-07-30"
+		}
+	]
+	
+}

@@ -1,0 +1,68 @@
+{
+	"patient": "P010",
+	"therapist": "Dra. Carla Cunha",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": "2012-10-19"
+		},
+		{
+			"number": "3",
+			"date": "2012-04-12"
+		},
+		{
+			"number": "4",
+			"date": "2011-05-09"
+		},
+		{
+			"number": "5",
+			"date": "2012-05-16"
+		},
+		{
+			"number": "6",
+			"date": null
+		},
+		{
+			"number": "7",
+			"date": null
+		},		
+		{
+			"number": "8",
+			"date": "2011-10-19"
+		},		
+		{
+			"number": "9",
+			"date": null
+		},
+		{
+			"number": "10",
+			"date": null
+		},
+		{
+			"number": "11",
+			"date": null
+		},
+		{
+			"number": "12",
+			"date": "2011-06-13"
+		},
+		{
+			"number": "13",
+			"date": null
+		},
+		{
+			"number": "14",
+			"date": null
+		},
+		{
+			"number": "15",
+			"date": null
+		},
+		{
+			"number": "16",
+			"date": "2011-09-27"
+		}
+	]
+	
+}

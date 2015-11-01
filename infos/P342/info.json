@@ -1,0 +1,28 @@
+{
+	"patient": "P342",
+	"therapist": "Dra. Patrícia Pinheiro",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": "2013-09-24"
+		},
+		{
+			"number": "4",
+			"date": "2013-10-10"
+		},
+		{
+			"number": "8",
+			"date": "2013-01-21"
+		},
+		{
+			"number": "12",
+			"date": "2013-01-25"
+		},
+		{
+			"number": "16",
+			"date": "2014-01-09"
+		}
+	]
+	
+}

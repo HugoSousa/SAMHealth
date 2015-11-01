@@ -1,0 +1,28 @@
+{
+	"patient": "P199",
+	"therapist": "Dra. Liliana Meira",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": null
+		},
+		{
+			"number": "4",
+			"date": null
+		},
+		{
+			"number": "8",
+			"date": null
+		},
+		{
+			"number": "12",
+			"date": null
+		},
+		{
+			"number": "16",
+			"date": null
+		}
+	]
+	
+}
