@@ -19,3 +19,14 @@ Note: Changes only apply to new files uploaded. If you already have posted any d
 ```sh
 $ java -Dparams=literal.id=<UNIQUE_ID> -Durl=http://localhost:8983/solr/<CORENAME>/update/extract -jar example\exampledocs\post.jar <FILE_PATH.docx>
 ```
+
+- To delete the documents on Solr:
+
+1. Go to 'Documents'
+2. Select 'Document Type' XML
+3. Add on 'Document' the following XML
+```sh
+<delete><query>*:*</query></delete>
+<commit/>
+```
+4. Submit
