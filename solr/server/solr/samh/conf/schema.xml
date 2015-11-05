@@ -197,6 +197,8 @@
    <dynamicField name="*_td" type="tdouble" indexed="true"  stored="true"/>
    <dynamicField name="*_tdt" type="tdate"  indexed="true"  stored="true"/>
 
+   <!-- needed for Tika to ignore metafields -->
+   <dynamicField name="ignored_*" type="ignored" multiValued="true"/>
    <dynamicField name="attr_*" type="text_general" indexed="true" stored="true" multiValued="true"/>
 
  <!-- Field to use to determine and enforce document uniqueness. 
@@ -596,6 +598,8 @@
       </analyzer>
     </fieldType>
 
+    <!-- needed for Tika to ignore metafields -->
+    <fieldType name="ignored" stored="false" indexed="false" multiValued="true" class="solr.StrField" />
 
    <!-- some examples for different languages (generally ordered by ISO code) -->
 
