@@ -5,23 +5,33 @@
 	[ 
 		{
 			"number": "1",
-			"date": null
+			"date": "2013-10-04",
+			"file": "P. 433 sessao 1.docx"
+		},
+		{
+			"number": "1.2",
+			"date": null,
+			"file": "443 S1.docx"
 		},
 		{
 			"number": "4",
-			"date": null
+			"date": null,
+			"file": "443 S4.docx"
 		},
 		{
 			"number": "8",
-			"date": null
+			"date": null,
+			"file": "443 S8.docx"
 		},
 		{
 			"number": "12",
-			"date": null
+			"date": null,
+			"file": "443 S12..docx"
 		},
 		{
 			"number": "16",
-			"date": null
+			"date": null,
+			"file": "443 S16..docx"
 		}
 	]
 	

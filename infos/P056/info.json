@@ -5,23 +5,28 @@
 	[ 
 		{
 			"number": "1",
-			"date": "2012-09-04"
+			"date": "2012-09-04",
+			"file": "P056_S1.docx"
 		},
 		{
 			"number": "4",
-			"date": null
+			"date": null,
+			"file": "P056_S4.docx"
 		},
 		{
 			"number": "8",
-			"date": null
+			"date": null,
+			"file": "P056_S8.docx"
 		},
 		{
 			"number": "12",
-			"date": null
+			"date": null,
+			"file": "P056_S12.docx"
 		},
 		{
 			"number": "16",
-			"date": null
+			"date": null,
+			"file": "P056_S16.docx"
 		}
 	]
 	

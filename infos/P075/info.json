@@ -5,71 +5,88 @@
 	[ 
 		{
 			"number": "1",
-			"date": null
+			"date": null,
+			"file": "P075_S1.docx"
 		},
 		{
 			"number": "2",
-			"date": "2011-05-30"
+			"date": "2011-05-30",
+			"file": "P075_S2.docx"
 		},
 		{
 			"number": "3",
-			"date": "2011-06-06"
+			"date": "2011-06-06",
+			"file": "P075_S3.docx"
 		},
 		{
 			"number": "4",
-			"date": "2011-06-13"
+			"date": "2011-06-13",
+			"file": "P075_S4.docx"
 		},
 		{
 			"number": "5",
-			"date": "2011-06-20"
+			"date": "2011-06-20",
+			"file": "P075_S5.docx"
 		},
 		{
 			"number": "6",
-			"date": "2011-06-27"
+			"date": "2011-06-27",
+			"file": "P075_S6.docx"
 		},
 		{
 			"number": "7",
-			"date": "2011-07-04"
+			"date": "2011-07-04",
+			"file": "P075_S7.docx"
 		},
 		{
 			"number": "8",
-			"date": "2011-07-11"
+			"date": "2011-07-11",
+			"file": "P075_S8.docx"
 		},
 		{
 			"number": "9",
-			"date": "2011-07-27"
+			"date": "2011-07-27",
+			"file": "P075_S9.docx"
 		},
 		{
 			"number": "9.2",
-			"date": "2011-07-27"
+			"date": "2011-07-27",
+			"file": "P075_S9.2.docx"
 		},
 		{
 			"number": "10",
-			"date": "2011-07-27"
+			"date": "2011-07-27",
+			"file": "P075_S10.doc"
 		},
 		{
 			"number": "11",
-			"date": "2011-08-10"
+			"date": "2011-08-10",
+			"file": "P075_S11.doc"
 		},
 		{
 			"number": "12",
-			"date": "2011-09-05"
+			"date": "2011-09-05",
+			"file": "P075_S12.docx"
 		},
 		{
 			"number": "13",
-			"date": "2011-09-12"
+			"date": "2011-09-12",
+			"file": "P075_S13.docx"
 		},
 		{
 			"number": "14",
-			"date": "2011-09-19"
+			"date": "2011-09-19",
+			"file": "P075_S14.docx"
 		},
 		{
 			"number": "15",
-			"date": "2011-09-26"
+			"date": "2011-09-26",
+			"file": "P075_S15.docx"
 		},
 		{
 			"number": "16",
-			"date": null
+			"date": null,
+			"file": "P075_S16.docx"
 		}
 	]
 	
