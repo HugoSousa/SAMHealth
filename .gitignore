@@ -2,3 +2,5 @@
 solr/server/logs
 solr/server/solr/hsperfdata_*
 
+transcriptions/**/*.docx
+transcriptions/**/*.doc
