@@ -9,10 +9,8 @@ body {
 	color:#fff;
 	font-family: 'Open Sans';
     font-weight: 300;
-
 	opacity: 0.65; 
     background-color: #333;
-
 }
 
 .keyword {
@@ -27,7 +25,43 @@ body {
 	margin: auto;
 	padding: 0px;
 	margin-left: 0px;
-		margin-right: 0px;
-width: 100%;
-	
+	margin-right: 0px;
+	width: 100%;
+}
+
+.panel-heading a p.caret-span:after {
+	font-family:'Glyphicons Halflings';
+    content:"\e114";
+    font-size: 150%;
+    margin-top: 15%;
+    color: grey;
+}
+.panel-heading a.collapsed p.caret-span:after {
+    content:"\e080";
+}
+
+.panel-heading a:hover{
+	text-decoration: none;
+}
+
+.container-results {
+	padding-top: 5%;
+	padding-bottom: 10%;
+}
+
+p.result-index, p.caret-span {
+	float: right;
+}
+
+.row {
+	margin-right: 0;
+}
+
+#no-results {
+	text-align: center;
+}
+
+p.score {
+	float: right;
+	font-size: 80%;
 }
