@@ -13,4 +13,12 @@ $app->get('/search', function () use ($app){
     $app->render('search.php', array());
 });
 
+
+$app->get('/lexical', function() use ($app) {
+	var_dump($app->csv);
+
+});	
+
+
+
 ?>
