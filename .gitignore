@@ -4,3 +4,6 @@ solr/server/solr/hsperfdata_*
 
 transcriptions/**/*.docx
 transcriptions/**/*.doc
+
+web/public/transcriptions/**/*.docx
+web/public/transcriptions/**/*.doc

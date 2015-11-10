@@ -4,6 +4,7 @@ $( document ).ready(function() {
     //the positioning after collapsing an accordion item is not correct
     $('.collapse').on('show.bs.collapse hide.bs.collapse', function(e) {
         e.preventDefault();
+        
     });
     $('[data-toggle="collapse"]').on('click', function(e) {
         e.preventDefault();
