@@ -57,8 +57,7 @@ $app->get('/search', function () use ($app){
 
 
 $app->get('/lexical', function() use ($app) {
-	var_dump($app->csv);
-
+	$app->render('lexical.php', array('csv' => $app->csv));
 });	
 
 

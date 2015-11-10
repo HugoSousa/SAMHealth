@@ -1,6 +1,5 @@
 <?php 
 class CSV { 
-    public $path = '?'; 
     
     
     static function get_lexical($path) { 
