@@ -55,4 +55,12 @@ $app->get('/search', function () use ($app){
 	$app->render('search.php', array('results' => $responseData, 'query' => $query));
 });
 
+
+$app->get('/lexical', function() use ($app) {
+	var_dump($app->csv);
+
+});	
+
+
+
 ?>
