@@ -59,7 +59,7 @@
             <ul>';
             if(isset($hl['content'])) {
               for($k = 0; $k < count($hl['content']); $k++){
-                echo utf8_decode('<li>'.$hl['content'][$k].'</li>');
+                echo '<li>'.$hl['content'][$k].'</li>';
               }
             }
 
