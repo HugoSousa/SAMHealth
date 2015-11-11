@@ -43,7 +43,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span style="color:#008cba"><b>SAM</span>H</b>ealth</a>
+          <div class="navbar-brand noselect" href="#"><span style="color:#008cba"><b>SAM</span>H</b>ealth</div>
         </div>
 
         <div id="navbar" class="collapse navbar-collapse">

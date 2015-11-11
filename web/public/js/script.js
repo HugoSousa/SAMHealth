@@ -27,7 +27,7 @@ $( document ).ready(function() {
 
 		var query = $("#searchbox").val();
 
-		window.location.href = 'http://localhost/search?query=' + query;
+		window.location.href = location.origin +'/search?query=' + query;
 
 		//?q=text:sim&fl=id,patient,therapist,session_number,session_date,score&wt=json&hl=true&hl.snippets=20&hl.fl=content&hl.usePhraseHighlighter=true'
 		

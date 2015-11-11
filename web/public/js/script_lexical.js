@@ -1,4 +1,14 @@
 $( document ).ready(function(){
+  $("#lexical_button").prop('disabled',true);
+
+  if ($('#primary-level-selected').val() != ""){
+     // TODO 3 simple levels
+     $('#global-level-btn').prop('disabled',false);
+     $("#lexical_button").prop('disabled',false);
+
+  }
+  if ($('#global-level-selected').val() != "") $('#intermediate-level-btn').prop('disabled',false);
+  if ($('#intermediate-level-selected').val() != "") $('#specific-level-btn').prop('disabled',false);
 
   /*THIS PART OF SCRIPT IS FOR LEXICAL PAGE - SHOULD BE IN SEPARATE FILE...?*/
   //PRIMARY LEVEL
@@ -16,12 +26,13 @@ $( document ).ready(function(){
   })
 
   $("#primary-level-list li").click(function(){
+      $("#lexical_button").prop('disabled',false);
 
     if("elements" in GLOBAL_CSV[$(this).text()]){
       //nao tem niveis inferiores
       $("#global-level-btn").prop('disabled', true);
       $("#intermediate-level-btn").prop('disabled', true);
-      $("#specific-level-btn").prop('disabled', false);
+      $("#specific-level-btn").prop('disabled', true);
     }else{
       $("#global-level-btn").prop('disabled', false);
       $("#intermediate-level-btn").prop('disabled', true);
@@ -43,11 +54,9 @@ $( document ).ready(function(){
 
     if($("#global-level-list").hasClass("hidden")){
       $("#global-level-list").removeClass("hidden");
-      console.log("ESTOU HIDDEN");
     }
     else{
       $("#global-level-list").addClass("hidden"); 
-      console.log("ESTOU VISIVEL");
     }
 
     $("#global-level-list").siblings().addClass("hidden");
@@ -156,4 +165,30 @@ $( document ).ready(function(){
 
     $("#specific-level-list").addClass("hidden");
   })
+
+  $(document).on("click","#lexical_button", function() {
+
+    var primary= $("#primary-level-selected").val();
+    var global= $("#global-level-selected").val();
+    var intermediate= $("#intermediate-level-selected").val();
+    var specific= $("#specific-level-selected").val();
+
+    var params = "?";
+    if (primary != "")
+      params += "primary=" + primary;
+
+      if (global != "")
+      params += "&global=" + global;
+
+      if (intermediate != "")
+      params += "&intermediate=" + intermediate;
+
+      if (specific != "")
+      params += "&specific=" + specific;
+
+    if (params == "?") params = "";
+    window.location.href = location.origin +'/lexical' + params;
+
+  })
+
 })

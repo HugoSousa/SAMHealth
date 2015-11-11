@@ -1,3 +1,4 @@
+
 <div class="container container-search">
   	<div class="row search-row">
 		<br><br>
@@ -15,7 +16,7 @@
 					<div class="col-md-4 text-center">Nível Primário</div>
 					<div class="col-md-8 text-center">
 						<div class="input-group">
-					      	<input id="primary-level-selected" type="text" class="form-control" disabled>
+					      	<input id="primary-level-selected" type="text" class="form-control" value="<?php echo (isset($_GET['primary']) ?  $_GET['primary'] : "")?>" disabled>
 					      	<span class="input-group-btn">
 					        	<button class="btn btn-default" id="primary-level-btn">
 					        		<span class="glyphicon glyphicon-list" style="line-height: inherit"></span>
@@ -29,7 +30,7 @@
 					<div class="col-md-4 text-center">Nível Global</div>
 					<div class="col-md-8 text-center">
 						<div class="input-group">
-					      	<input id="global-level-selected" type="text" class="form-control" disabled>
+					      	<input id="global-level-selected" type="text" class="form-control" value="<?php echo (isset($_GET['global']) ?  $_GET['global'] : "")?>" disabled>
 					      	<span class="input-group-btn">
 					        	<button class="btn btn-default" id="global-level-btn" disabled>
 					        		<span class="glyphicon glyphicon-list" style="line-height: inherit"></span>
@@ -43,7 +44,7 @@
 					<div class="col-md-4 text-center">Nível Intermédio</div>
 					<div class="col-md-8 text-center">
 						<div class="input-group">
-					      	<input id="intermediate-level-selected" type="text" class="form-control" disabled>
+					      	<input id="intermediate-level-selected" type="text" class="form-control" value="<?php echo (isset($_GET['intermediate']) ?  $_GET['intermediate'] : "")?>" disabled>
 					      	<span class="input-group-btn">
 					        	<button class="btn btn-default" id="intermediate-level-btn" disabled>
 					        		<span class="glyphicon glyphicon-list" style="line-height: inherit"></span>
@@ -57,7 +58,7 @@
 					<div class="col-md-4 text-center">Nível Específico</div>
 					<div class="col-md-8 text-center">
 						<div class="input-group">
-					      	<input id="specific-level-selected" type="text" class="form-control" disabled>
+					      	<input id="specific-level-selected" type="text" class="form-control" value="<?php echo (isset($_GET['specific']) ?  $_GET['specific'] : "")?>" disabled>
 					      	<span class="input-group-btn">
 					        	<button class="btn btn-default" id="specific-level-btn" disabled>
 					        		<span class="glyphicon glyphicon-list" style="line-height: inherit"></span>
@@ -87,7 +88,7 @@
 		
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<button class="btn btn-primary" type="button" style="width:40%">Search</button>
+				<button id="lexical_button"class="btn btn-primary" type="button" style="width:40%">Search</button>
 			</div>
 		</div>
 
