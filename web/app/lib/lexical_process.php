@@ -27,7 +27,7 @@ class Lexical_Process {
                           else {
                             if (!array_key_exists($level4, $csv_level4)) return null;
                             else {
-                                return   Lexical_Process::dig_tree($csv_level4($level4));
+                                return Lexical_Process::dig_tree($csv_level4[$level4]);
                             }
                           }
                         }
