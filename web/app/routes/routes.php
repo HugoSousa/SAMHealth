@@ -1,4 +1,5 @@
 <?php
+require '../app/lib/lexical_process.php';
 
 $app->get('/', function () use ($app){
 	$app->render('main.php', array());
@@ -57,8 +58,24 @@ $app->get('/search', function () use ($app){
 
 $app->get('/lexical', function() use ($app) {
 	$app->render('lexical.php', array('csv' => $app->csv));
-});	
+})->name('lexical');
 
+$app->get('/lexicalsearch', function() use ($app) {
+	$csv = $app->csv;
+	$level1 = $app->request()->params('primary');
+	$level2 = $app->request()->params('global');
+	$level3 = $app->request()->params('intermediate');
+	$level4 = $app->request()->params('specific');
 
+	$page = $app->request()->params('page');
+	if (is_null($page) || $page < 1) $page = 1;
+	if (is_null($level1)) $app->redirect($app->urlFor('lexical'));
+
+	//////////////////////////
+	$words = Lexical_Process::get_words($level1, $level2, $level3, $level4, $app->csv);
+	var_dump($words);
+	if (is_null($words)) var_dump("query error");
+	$app->render('lexical.php', array('csv' => $app->csv));
+});
 
 ?>

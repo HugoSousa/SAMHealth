@@ -1,7 +1,6 @@
 <?php 
 class CSV { 
     
-    
     static function get_lexical($path) { 
         //$csv_columns = CSV::get_hardcoded($path); 
         $csv_columns =  CSV::get_csv($path); 
