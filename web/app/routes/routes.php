@@ -55,10 +55,6 @@ $app->get('/search', function () use ($app){
 	}
 });
 
-function server_down($errno, $errstr) { 
-}
-
-
 $app->get('/lexical', function() use ($app) {
 	$app->render('lexical.php', array('csv' => $app->csv));
 });	
