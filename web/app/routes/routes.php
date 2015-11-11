@@ -37,23 +37,26 @@ $app->get('/search', function () use ($app){
 			)
 		);
 
+	set_error_handler(function() {}, E_WARNING); //to catch and ignore error if server is down
+
 	// Send the request
 	$response = file_get_contents('http://localhost:8983/solr/samh/select?'.http_build_query($params));
+	
+	restore_error_handler();
 
 	// Check for errors
 	if($response === FALSE){
-		die('Error');
+		$app->render('server_down.php', array());
+	}else{
+		// Decode the response
+		$responseData = json_decode($response, TRUE);
+
+		$app->render('search.php', array('results' => $responseData, 'query' => $query));
 	}
-
-	// Decode the response
-	$responseData = json_decode($response, TRUE);
-
-	// Print the date from the response
-	//var_dump($responseData);
-
-	/////////////////////////
-	$app->render('search.php', array('results' => $responseData, 'query' => $query));
 });
+
+function server_down($errno, $errstr) { 
+}
 
 
 $app->get('/lexical', function() use ($app) {

@@ -82,3 +82,7 @@ p.score {
 .pager li>a, .pager li>span {
 	border: 1px solid #ddd;
 }
+
+#server-down-sad-face {
+	font-size: 1000%;
+}
