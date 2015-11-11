@@ -31,7 +31,7 @@
 						<div class="input-group">
 					      	<input id="global-level-selected" type="text" class="form-control" disabled>
 					      	<span class="input-group-btn">
-					        	<button class="btn btn-default" id="global-level-btn">
+					        	<button class="btn btn-default" id="global-level-btn" disabled>
 					        		<span class="glyphicon glyphicon-list" style="line-height: inherit"></span>
 					        	</button>
 					      	</span>
@@ -45,7 +45,7 @@
 						<div class="input-group">
 					      	<input id="intermediate-level-selected" type="text" class="form-control" disabled>
 					      	<span class="input-group-btn">
-					        	<button class="btn btn-default" id="intermediate-level-btn">
+					        	<button class="btn btn-default" id="intermediate-level-btn" disabled>
 					        		<span class="glyphicon glyphicon-list" style="line-height: inherit"></span>
 					        	</button>
 					      	</span>
@@ -59,7 +59,7 @@
 						<div class="input-group">
 					      	<input id="specific-level-selected" type="text" class="form-control" disabled>
 					      	<span class="input-group-btn">
-					        	<button class="btn btn-default" id="specific-level-btn">
+					        	<button class="btn btn-default" id="specific-level-btn" disabled>
 					        		<span class="glyphicon glyphicon-list" style="line-height: inherit"></span>
 					        	</button>
 					      	</span>
@@ -76,9 +76,8 @@
 						}
 					?>
 				</ul>
-				<ul id="global-level-list" class="list-group hidden" style="margin:0; padding: 0">
-				</ul>
-				<ul id="intemerdiate-level-list" class="list-group hidden" style="margin:0; padding: 0"></ul>
+				<ul id="global-level-list" class="list-group hidden" style="margin:0; padding: 0"></ul>
+				<ul id="intermediate-level-list" class="list-group hidden" style="margin:0; padding: 0"></ul>
 				<ul id="specific-level-list" class="list-group hidden" style="margin:0; padding: 0"></ul>
 			</div>
 
