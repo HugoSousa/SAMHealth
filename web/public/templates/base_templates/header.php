@@ -47,7 +47,9 @@
         </div>
 
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/search">Search by Terms</a></li>
+            <li><a href="/lexical">Search by Lexical Levels</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
