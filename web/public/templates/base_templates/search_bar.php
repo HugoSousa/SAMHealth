@@ -10,7 +10,7 @@
 	<div class="row">
 
 	<div class="input-group input-group-lg col-md-6 col-md-offset-3">
-	<input id="searchbox" autofocus="" type="text" class="form-control">
+	<input id="searchbox" autofocus="" type="text" class="form-control" value="<?php echo isset($_GET['query']) ? $_GET['query'] : ''; ?>">
 	<span class="input-group-btn">
 		<button id="sbtn" class="btn btn-primary" type="button">
 		Search

@@ -15,6 +15,14 @@
 
     for($i = 0; $i < $docs_size; $i++){
       $doc = $results['response']['docs'][$i];
+      $ocurrences = 0;
+
+      foreach ($doc as $key => $value) {
+        if(substr($key, 0, 6 ) === "count_") {
+           $ocurrences += $value;
+        }
+      }
+
       $hl = $results['highlighting'][$doc['id']];
       echo '
       <div class="panel panel-default" id="panel'.$i.'"> 
@@ -31,7 +39,7 @@
                     <div class="row">
                       <p class="col-md-4">Session: <span class="session">'.$doc['session_number'].'</span></p>';
                       if(isset($doc['session_date'])) {
-                        echo '<p class="col-md-4 date-p">Date: <span class="date">'.$doc['session_date'].'</span></p>';
+                        echo '<p class="col-md-4 date-p">Date: <span class="date">'.substr($doc['session_date'], 0, 10).'</span></p>';
                       }
 
       echo '
@@ -54,8 +62,11 @@
 
         <div id="collapse'.$i.'" class="panel-collapse collapse">
           <div class="panel-body">
-            <p class="score">score: '.$doc['score'].'</p>
-            <p>X ocurrences found on this file</p>
+            <p class="score">score: '.$doc['score'].'</p>';
+            if($ocurrences != 0) {
+              echo '<p>'. $ocurrences .' ocurrences found on this file</p>';
+            } 
+            echo '
             <ul>';
             if(isset($hl['content'])) {
               for($k = 0; $k < count($hl['content']); $k++){

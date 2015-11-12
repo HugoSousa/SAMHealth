@@ -16,7 +16,7 @@ $app->get('/search', function () use ($app){
 	$highlight_snippets = 3;
 	// The data to send to the API
 	$params = array(
-		'q' => $query,
+		'q' => 'text:'.$query,
 		'fl' => 'id,patient,therapist,session_number,session_date,file,score',
 		'wt' => 'json',
 		'hl' => 'true',
@@ -25,6 +25,7 @@ $app->get('/search', function () use ($app){
 		'hl.usePhraseHighlighter' => 'true',
 		'hl.simple.pre' => '<b>',
 		'hl.simple.post' => '</b>',
+		'hl.maxAnalyzedChars' => 1000000,
 		'rows' => $results_per_page,
 		'start' => ($page - 1) * $results_per_page
 		);
@@ -64,8 +65,18 @@ $app->get('/lexical', function() use ($app) {
 
 	//////////////////////////
 	$words = Lexical_Process::get_words($level1, $level2, $level3, $level4, $app->csv);
+	$words_array = explode(" ", $words);
 
-	//echo $words;
+	$words_fl = "";
+
+	//to count the number of times a term appears on the document (a term is a single word! - if multiple terms, they can be calculated separately): 
+	//add to fl: <FIELD_ALIAS>:termfreq(text,'<TERM>')
+
+	foreach ($words_array as $w) {
+		$words_fl .= 'count_' . $w . ':termfreq(text,\'' . $w . '\'),';
+	}
+
+	//echo $words_fl;
 	if (is_null($words)) $app->redirect($app->urlFor('lexical'));
 	else {
 		$results_per_page = 10;
@@ -73,8 +84,8 @@ $app->get('/lexical', function() use ($app) {
 
 		$postdata = http_build_query(
 			array(
-					'q' => $words,
-					'fl' => 'id,patient,therapist,session_number,session_date,file,score',
+					'q' => 'text:'.$words,
+					'fl' => $words_fl.'id,patient,therapist,session_number,session_date,file,score',
 					'wt' => 'json',
 					'hl' => 'true',
 					'hl.snippets' => $highlight_snippets,
