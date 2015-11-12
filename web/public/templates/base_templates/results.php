@@ -98,25 +98,51 @@
   $docs_size = count($results['response']['docs']);
   $page_number = ($start / 10 + 1);
 
-  if($docs_size != 0) {
-    echo '<nav>
-      <ul class="pager">';
+   if (isset($origin) && strcmp($origin, "lexical") == 0) {
+      if($docs_size != 0) {
+        echo '<nav>
+          <ul class="pager">';
 
-      if($start == 0) {
-        echo '<li class="disabled"><a>Previous</a></li>';
-      } else {
-        echo '<li><a href="http://localhost/search?query='.$query.'&page='.($page_number - 1).'">Previous</a></li>';
+          if($start == 0) {
+            echo '<li class="disabled"><a>Previous</a></li>';
+          } else {
+            echo '<li><a href="http://localhost/lexical?'.$lexical_params_string.'&page='.($page_number - 1).'">Previous</a></li>';
+          }
+
+          if( $page_number >= ceil($results_found / 10)) {
+            echo '<li class="disabled"><a>Next</a></li>';
+          } else {
+            echo '<li><a href="http://localhost/lexical?'.$lexical_params_string.'&page='.($page_number + 1).'">Next</a></li>';
+          }
+
+        echo '</ul>
+          </nav>';
       }
+   }
+   else {
+      if($docs_size != 0) {
+        echo '<nav>
+          <ul class="pager">';
 
-      if( $page_number >= ceil($results_found / 10)) {
-        echo '<li class="disabled"><a>Next</a></li>';
-      } else {
-        echo '<li><a href="http://localhost/search?query='.$query.'&page='.($page_number + 1).'">Next</a></li>';
-      }
+          if($start == 0) {
+            echo '<li class="disabled"><a>Previous</a></li>';
+          } else {
+            echo '<li><a href="http://localhost/search?query='.$query.'&page='.($page_number - 1).'">Previous</a></li>';
+          }
 
-    echo '</ul>
-      </nav>';
-  } 
+          if( $page_number >= ceil($results_found / 10)) {
+            echo '<li class="disabled"><a>Next</a></li>';
+          } else {
+            echo '<li><a href="http://localhost/search?query='.$query.'&page='.($page_number + 1).'">Next</a></li>';
+          }
+
+        echo '</ul>
+          </nav>';
+      } 
+
+   }
+
+ 
   ?>
 
   
