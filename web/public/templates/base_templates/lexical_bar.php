@@ -67,6 +67,16 @@
 					    </div>
 					</div>
 				</div>
+
+				<div class="row" style="display: block; padding:0px; padding-right: 15px;">
+					<!-- Button trigger modal -->
+					<p class="pull-right">
+						Patient Filter:
+						<a data-toggle="modal" data-target="#myModal" class="patient-label" style="cursor: pointer;">
+							<?php echo isset($_GET['patient']) ? $_GET['patient'] : 'None'; ?>
+						</a>
+					</p>
+				</div>
 			</div>
 
 			<div class="col-md-6" style="max-height: 300px; overflow-y:auto; ">
@@ -102,3 +112,50 @@
 	</div>
 
 </div><!-- /.container -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index:1500">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Patient List</h4>
+			</div>
+			<div class="modal-body" style="padding-bottom: 0px;">
+
+				<div style="width: 100%">
+					<ul class="list-group" style="max-height: 300px;overflow-y:auto; color: #000; padding-top: 1px;">
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">None</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P003</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P010</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P011</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P013</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P019</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P021</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P026</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P027</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P056</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P075</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P152</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P172</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P177</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P186</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P199</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P210</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P213</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P342</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P412</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P413</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P433</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P443</a></li>
+						<li class="list-group-item text-center"><a class="patient-id" data-dismiss="modal" href="javascript:void(0)">P465</a></li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

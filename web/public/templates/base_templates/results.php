@@ -99,41 +99,62 @@
   $page_number = ($start / 10 + 1);
 
    if (isset($origin) && strcmp($origin, "lexical") == 0) {
-      if($docs_size != 0) {
-        echo '<nav>
-          <ul class="pager">';
+       if($docs_size != 0) {
+          echo '<nav>
+            <ul class="pager">';
 
-          if($start == 0) {
-            echo '<li class="disabled"><a>Previous</a></li>';
-          } else {
-            echo '<li><a href="http://localhost/lexical?'.$lexical_params_string.'&page='.($page_number - 1).'">Previous</a></li>';
-          }
+            $patient_params = "";
 
-          if( $page_number >= ceil($results_found / 10)) {
-            echo '<li class="disabled"><a>Next</a></li>';
-          } else {
-            echo '<li><a href="http://localhost/lexical?'.$lexical_params_string.'&page='.($page_number + 1).'">Next</a></li>';
-          }
+            if(isset($_GET['patient']) ) {
+              $patient_params .= '&patient='.$_GET['patient'];
+            } 
 
-        echo '</ul>
-          </nav>';
-      }
+            $paramsNext = $lexical_params_string.'&page='.($page_number + 1).$patient_params;
+            $paramsPrev = $lexical_params_string.'&page='.($page_number - 1).$patient_params;
+
+            if($start == 0) {
+              echo '<li class="disabled"><a>Previous</a></li>';
+            } else {
+              echo '<li><a href="http://localhost/lexical?'.$paramsPrev.'">Previous</a></li>';
+            }
+
+            if( $page_number >= ceil($results_found / 10)) {
+              echo '<li class="disabled"><a>Next</a></li>';
+            } else {
+              echo '<li><a href="http://localhost/lexical?'.$paramsNext.'">Next</a></li>';
+            }
+
+          echo '</ul>
+            </nav>';
+        } 
+
+
    }
    else {
+
       if($docs_size != 0) {
         echo '<nav>
           <ul class="pager">';
 
+          $patient_params = "";
+
+          if(isset($_GET['patient']) ) {
+            $patient_params .= '&patient='.$_GET['patient'];
+          } 
+
+          $paramsNext = 'query='.$query.'&page='.($page_number + 1).$patient_params;
+          $paramsPrev = 'query='.$query.'&page='.($page_number - 1).$patient_params;
+
           if($start == 0) {
             echo '<li class="disabled"><a>Previous</a></li>';
           } else {
-            echo '<li><a href="http://localhost/search?query='.$query.'&page='.($page_number - 1).'">Previous</a></li>';
+            echo '<li><a href="http://localhost/search?'.$paramsPrev.'">Previous</a></li>';
           }
 
           if( $page_number >= ceil($results_found / 10)) {
             echo '<li class="disabled"><a>Next</a></li>';
           } else {
-            echo '<li><a href="http://localhost/search?query='.$query.'&page='.($page_number + 1).'">Next</a></li>';
+            echo '<li><a href="http://localhost/search?'.$paramsNext.'">Next</a></li>';
           }
 
         echo '</ul>
@@ -142,8 +163,7 @@
 
    }
 
- 
-  ?>
+?>
 
   
 

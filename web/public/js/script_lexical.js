@@ -3,34 +3,34 @@ $( document ).ready(function(){
 
   if ($('#primary-level-selected').val() != ""){
      // TODO 3 simple levels
-  $("#lexical_button").prop('disabled',false);
+     $("#lexical_button").prop('disabled',false);
 
-    console.log(GLOBAL_CSV[$('#primary-level-selected').val()]);
+     console.log(GLOBAL_CSV[$('#primary-level-selected').val()]);
      if("elements" in GLOBAL_CSV[$('#primary-level-selected').val()]) {
-        $('#global-level-btn').prop('disabled',true);
-     } else {
-         $("#global-level-btn").prop('disabled',false);
+      $('#global-level-btn').prop('disabled',true);
+    } else {
+     $("#global-level-btn").prop('disabled',false);
 
-     }
+   }
 
-     if ($('#global-level-selected').val() != "") {
-        $('#intermediate-level-btn').prop('disabled',false);
-        if ($('#intermediate-level-selected').val() != "") $('#specific-level-btn').prop('disabled',false);
-        else $('#specific-level-selected').val("");
-     } else {
-      $('#intermediate-level-selected').val("");
-      $('#specific-level-selected').val("");
-
-     }
-     
+   if ($('#global-level-selected').val() != "") {
+    $('#intermediate-level-btn').prop('disabled',false);
+    if ($('#intermediate-level-selected').val() != "") $('#specific-level-btn').prop('disabled',false);
+    else $('#specific-level-selected').val("");
   } else {
-    $('#global-level-selected').val("")
-    $('#intermediate-level-selected').val("")
-    $('#specific-level-selected').val("")
+    $('#intermediate-level-selected').val("");
+    $('#specific-level-selected').val("");
 
   }
- 
-  /*THIS PART OF SCRIPT IS FOR LEXICAL PAGE - SHOULD BE IN SEPARATE FILE...?*/
+
+} else {
+  $('#global-level-selected').val("")
+  $('#intermediate-level-selected').val("")
+  $('#specific-level-selected').val("")
+
+}
+
+/*THIS PART OF SCRIPT IS FOR LEXICAL PAGE - SHOULD BE IN SEPARATE FILE...?*/
   //PRIMARY LEVEL
   $("#primary-level-btn").click(function(){
 
@@ -46,7 +46,7 @@ $( document ).ready(function(){
   })
 
   $("#primary-level-list li").click(function(){
-      $("#lexical_button").prop('disabled',false);
+    $("#lexical_button").prop('disabled',false);
 
     if("elements" in GLOBAL_CSV[$(this).text()]){
       //nao tem niveis inferiores
@@ -115,7 +115,7 @@ $( document ).ready(function(){
   //INTERMEDIATE LEVEL
   $("#intermediate-level-btn").click(function(){
 
-    
+
     if($("#intermediate-level-list").hasClass("hidden"))
       $("#intermediate-level-list").removeClass("hidden");
     else
@@ -192,19 +192,23 @@ $( document ).ready(function(){
     var global= $("#global-level-selected").val();
     var intermediate= $("#intermediate-level-selected").val();
     var specific= $("#specific-level-selected").val();
+    var patient = $(".patient-label").text().trim();
 
     var params = "?";
     if (primary != "")
       params += "primary=" + primary;
 
-      if (global != "")
+    if (global != "")
       params += "&global=" + global;
 
-      if (intermediate != "")
+    if (intermediate != "")
       params += "&intermediate=" + intermediate;
 
-      if (specific != "")
+    if (specific != "")
       params += "&specific=" + specific;
+
+    if(patient !== "None")
+      params += '&patient=' + patient;
 
     if (params == "?") params = "";
     window.location.href = location.origin +'/lexical' + params;

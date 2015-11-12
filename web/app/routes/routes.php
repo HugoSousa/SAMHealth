@@ -8,15 +8,21 @@ $app->get('/', function () use ($app){
 $app->get('/search', function () use ($app){
 	$query = $app->request()->params('query');
 	$page = $app->request()->params('page');
+	$patient = $app->request()->params('patient');
 	if (is_null($page) || $page < 1) $page = 1;
 	if (is_null($query)) $app->redirect($app->urlFor('home'));
+
+	$patient_query = "";
+	if(!is_null($patient)) {
+		$patient_query = ' AND patient: ' . $patient;
+	}
 	//////////////////////////
 
 	$results_per_page = 10;
 	$highlight_snippets = 3;
 	// The data to send to the API
 	$params = array(
-		'q' => 'text:'.$query,
+		'q' => 'text:'.$query.$patient_query,
 		'fl' => 'id,patient,therapist,session_number,session_date,file,score',
 		'wt' => 'json',
 		'hl' => 'true',
@@ -26,6 +32,7 @@ $app->get('/search', function () use ($app){
 		'hl.simple.pre' => '<b>',
 		'hl.simple.post' => '</b>',
 		'hl.maxAnalyzedChars' => 1000000,
+		'hl.q' => 'text:'.$query,
 		'rows' => $results_per_page,
 		'start' => ($page - 1) * $results_per_page
 		);
@@ -55,6 +62,7 @@ $app->get('/lexical', function() use ($app) {
 	$level2 = $app->request()->params('global');
 	$level3 = $app->request()->params('intermediate');
 	$level4 = $app->request()->params('specific');
+	$patient = $app->request()->params('patient');
 
 	$lexical_params_string = "";
 	if (isset($level1)) $lexical_params_string .= "primary=".$level1;
@@ -83,7 +91,12 @@ $app->get('/lexical', function() use ($app) {
 		$words_fl .= 'count_' . $w . ':termfreq(text,\'' . $w . '\'),';
 	}
 
-	//echo $words_fl;
+	$patient_query = "";
+	if(!is_null($patient)) {
+		$patient_query = ' AND patient:' . $patient;
+	}
+
+	//echo $patient_query;
 	if (is_null($words)) $app->redirect($app->urlFor('lexical'));
 	else {
 		$results_per_page = 10;
@@ -91,7 +104,7 @@ $app->get('/lexical', function() use ($app) {
 
 		$postdata = http_build_query(
 			array(
-					'q' => 'text:'.$words,
+					'q' => 'text:'.$words.$patient_query,
 					'fl' => $words_fl.'id,patient,therapist,session_number,session_date,file,score',
 					'wt' => 'json',
 					'hl' => 'true',
@@ -100,6 +113,8 @@ $app->get('/lexical', function() use ($app) {
 					'hl.usePhraseHighlighter' => 'true',
 					'hl.simple.pre' => '<b>',
 					'hl.simple.post' => '</b>',
+					'hl.maxAnalyzedChars' => 1000000,
+					'hl.q' => 'text:'.$words,
 					'rows' => $results_per_page,
 					'start' => ($page - 1) * $results_per_page
 					)
