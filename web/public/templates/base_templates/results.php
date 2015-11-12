@@ -94,10 +94,19 @@
     echo '<nav>
       <ul class="pager">';
 
+      $patient_params = "";
+
+      if(isset($_GET['patient']) ) {
+        $patient_params .= '&patient='.$_GET['patient'];
+      } 
+
+      $paramsNext = 'query='.$query.'&page='.($page_number + 1).$patient_params;
+      $paramsPrev = 'query='.$query.'&page='.($page_number - 1).$patient_params;
+
       if($start == 0) {
         echo '<li class="disabled"><a>Previous</a></li>';
       } else {
-        echo '<li><a href="http://localhost/search?query='.$query.'&page='.($page_number - 1).'">Previous</a></li>';
+        echo '<li><a href="http://localhost/search?'.$paramsPrev.'">Previous</a></li>';
       }
 
       $results_found = $results['response']['numFound'];
@@ -105,7 +114,7 @@
       if( $page_number >= ceil($results_found / 10)) {
         echo '<li class="disabled"><a>Next</a></li>';
       } else {
-        echo '<li><a href="http://localhost/search?query='.$query.'&page='.($page_number + 1).'">Next</a></li>';
+        echo '<li><a href="http://localhost/search?'.$paramsNext.'">Next</a></li>';
       }
 
     echo '</ul>

@@ -17,22 +17,34 @@ $( document ).ready(function() {
 
   //if searchbox is focused and 'Enter' is clicked, simulate button click
   $('#searchbox').keypress(function(event){
-	  if(event.keyCode == 13){
-      $('#sbtn').click();
-  	}
-	});
+   if(event.keyCode == 13){
+    $('#sbtn').click();
+  }
+});
 
   $("#sbtn").click(function() {
-		console.log("clicked button. send get request");
+    var query = $("#searchbox").val();
+    var patient = $(".patient-label").text().trim();
 
-		var query = $("#searchbox").val();
+    if (query !== "") {
 
-		window.location.href = location.origin +'/search?query=' + query;
+      var new_location = location.origin +'/search?query=' + query;
+
+      if(patient !== "None") {
+        new_location += '&patient=' + patient;
+      } 
+
+      window.location.href = new_location;
+    }
 
 		//?q=text:sim&fl=id,patient,therapist,session_number,session_date,score&wt=json&hl=true&hl.snippets=20&hl.fl=content&hl.usePhraseHighlighter=true'
 		
 		//to count the number of times a term appears on the document (a term is a single word! - if multiple terms, they can be calculated separately): 
 		//add to fl: <FIELD_ALIAS>:termfreq(text,'<TERM>')
 	});
+
+  $(".patient-id").click(function() {
+    $(".patient-label").text($(this).text());
+  });
 
 });
