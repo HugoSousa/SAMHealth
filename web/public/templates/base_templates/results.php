@@ -1,6 +1,14 @@
 <div class="container container-results">
+<?php 
+      $results_found = $results['response']['numFound'];
+      if ($results_found != 0) {
+?>
+    <h4 style="color: gray; margin-left:15px; margin-top:0px;margin-bottom:15px"><?php echo $results_found; ?> documents found</h4>
+      
 
   <?php 
+
+  }
   $docs_size = count($results['response']['docs']);
   if($docs_size == 0) {
     echo '<h3 id="no-results"> No results found! </h3>';
@@ -99,8 +107,6 @@
       } else {
         echo '<li><a href="http://localhost/search?query='.$query.'&page='.($page_number - 1).'">Previous</a></li>';
       }
-
-      $results_found = $results['response']['numFound'];
 
       if( $page_number >= ceil($results_found / 10)) {
         echo '<li class="disabled"><a>Next</a></li>';
