@@ -19,7 +19,7 @@
 
 			<div class="col-md-6 col-md-offset-3" id="stip" style="display: block; padding:0px;">
 				<i class="icon-lightbulb icon-large"></i> <b>TIP</b> - Use keywords separated by
-				<b>space</b>, example: "<span class="keyword"><b>tristeza dor</b></span>"
+				<b>space</b>, example: "<a class="keyword" href="search?query=tristeza%20dor"><b>tristeza dor</b></a>"
 				<!-- Button trigger modal -->
 				<p class="pull-right">
 					Patient Filter:
