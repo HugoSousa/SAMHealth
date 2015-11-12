@@ -14,7 +14,7 @@ $app->get('/search', function () use ($app){
 
 	$patient_query = "";
 	if(!is_null($patient)) {
-		$patient_query = ' AND patient: ' . $patient;
+		$patient_query = 'patient: ' . $patient;
 	}
 	//////////////////////////
 
@@ -22,7 +22,8 @@ $app->get('/search', function () use ($app){
 	$highlight_snippets = 3;
 	// The data to send to the API
 	$params = array(
-		'q' => 'text:'.$query.$patient_query,
+		'q' => 'text:'.$query,
+		'fq' => $patient_query,
 		'fl' => 'id,patient,therapist,session_number,session_date,file,score',
 		'wt' => 'json',
 		'hl' => 'true',
@@ -86,10 +87,10 @@ $app->get('/lexical', function() use ($app) {
 
 	$patient_query = "";
 	if(!is_null($patient)) {
-		$patient_query = ' AND patient:' . $patient;
+		$patient_query = 'patient:' . $patient;
 	}
 
-	//echo $patient_query;
+	//echo $words;
 	if (is_null($words)) $app->redirect($app->urlFor('lexical'));
 	else {
 		$results_per_page = 10;
@@ -97,7 +98,8 @@ $app->get('/lexical', function() use ($app) {
 
 		$postdata = http_build_query(
 			array(
-					'q' => 'text:'.$words.$patient_query,
+					'q' => 'text:'.$words,
+					'fq' => $patient_query,
 					'fl' => $words_fl.'id,patient,therapist,session_number,session_date,file,score',
 					'wt' => 'json',
 					'hl' => 'true',
@@ -108,6 +110,7 @@ $app->get('/lexical', function() use ($app) {
 					'hl.simple.post' => '</b>',
 					'hl.maxAnalyzedChars' => 1000000,
 					'hl.q' => 'text:'.$words,
+
 					'rows' => $results_per_page,
 					'start' => ($page - 1) * $results_per_page
 					)
