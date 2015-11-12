@@ -3,13 +3,33 @@ $( document ).ready(function(){
 
   if ($('#primary-level-selected').val() != ""){
      // TODO 3 simple levels
-     $('#global-level-btn').prop('disabled',false);
-     $("#lexical_button").prop('disabled',false);
+  $("#lexical_button").prop('disabled',false);
+
+    console.log(GLOBAL_CSV[$('#primary-level-selected').val()]);
+     if("elements" in GLOBAL_CSV[$('#primary-level-selected').val()]) {
+        $('#global-level-btn').prop('disabled',true);
+     } else {
+         $("#global-level-btn").prop('disabled',false);
+
+     }
+
+     if ($('#global-level-selected').val() != "") {
+        $('#intermediate-level-btn').prop('disabled',false);
+        if ($('#intermediate-level-selected').val() != "") $('#specific-level-btn').prop('disabled',false);
+        else $('#specific-level-selected').val("");
+     } else {
+      $('#intermediate-level-selected').val("");
+      $('#specific-level-selected').val("");
+
+     }
+     
+  } else {
+    $('#global-level-selected').val("")
+    $('#intermediate-level-selected').val("")
+    $('#specific-level-selected').val("")
 
   }
-  if ($('#global-level-selected').val() != "") $('#intermediate-level-btn').prop('disabled',false);
-  if ($('#intermediate-level-selected').val() != "") $('#specific-level-btn').prop('disabled',false);
-
+ 
   /*THIS PART OF SCRIPT IS FOR LEXICAL PAGE - SHOULD BE IN SEPARATE FILE...?*/
   //PRIMARY LEVEL
   $("#primary-level-btn").click(function(){
