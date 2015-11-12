@@ -57,12 +57,19 @@ $app->get('/search', function () use ($app){
 });
 
 $app->get('/lexical', function() use ($app) {
+
 	$csv = $app->csv;
 	$level1 = $app->request()->params('primary');
 	$level2 = $app->request()->params('global');
 	$level3 = $app->request()->params('intermediate');
 	$level4 = $app->request()->params('specific');
 	$patient = $app->request()->params('patient');
+
+	$lexical_params_string = "";
+	if (isset($level1)) $lexical_params_string .= "primary=".$level1;
+	if (isset($level2)) $lexical_params_string .= "&global=".$level2;
+	if (isset($level3)) $lexical_params_string .= "&intermediate=".$level3;
+	if (isset($level4)) $lexical_params_string .= "&specific=".$level4;
 
 
 	$page = $app->request()->params('page');
@@ -136,7 +143,7 @@ $app->get('/lexical', function() use ($app) {
 			// Decode the response
 			$responseData = json_decode($response, TRUE);
 
-			$app->render('lexical_search.php', array('csv' => $app->csv, 'results' => $responseData, 'query' => ""));
+			$app->render('lexical_search.php', array('csv' => $app->csv, 'results' => $responseData, 'lexical_params_string' => $lexical_params_string));
 			//$app->render('search.php', array('results' => $responseData, 'query' => $words));
 		}
 
