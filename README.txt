@@ -1,8 +1,9 @@
-Utilizou-se PHP com a framework Slim(para o routing) para o servidor e Javascript com jQuery para o cliente.
+﻿Utilizou-se PHP com a framework Slim(para o routing) para o servidor e Javascript com jQuery para o cliente.
 
 Existem duas routes que estão definidas em ./web/app/routes/routes.php: 
 A route /search recebe como parâmetros a query a pesquisar, o número da página e o código do paciente (caso seja feita a filtragem por paciente).
-A route /lexical recebe os níveis da base lexical (primário, global, intermédio, especifico) escolhidos para a pesquisa, o número da página e o código do paciente. Através dos níveis da base lexical é feita uma filtragem no csv para obter as palavras pretendidas.
+A route /lexical recebe os níveis da base lexical (primário, global, intermédio, especifico) escolhidos para a pesquisa, o número da página e o código do paciente.
+Através dos níveis da base lexical é feita uma filtragem no csv para obter as palavras pretendidas. Esta transformação é implementada nos scripts contidos na pasta ./web/app/lib/ .
 
 Os templates usados estão definidos em ./web/public/templates.	
 
@@ -18,3 +19,9 @@ Exemplo:
 		P010_S1.docx
 		...
 	...
+
+O start.cmd é um script que inicia o servidor Solr no core samh que inclui os dados e configurações da plataforma.
+
+O script upload_transcriptions.py serve para indexar as transcrições para o Solr. Estas transcrições deverão encontrar-se na pasta ./transcritions/<ID Paciente>.
+
+Os ficheiros (.doc/.docx) das transcrições não foram incluídos nesta entrega mas encontram-se indexados no core samh no Solr.
