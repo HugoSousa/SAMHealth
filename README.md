@@ -25,8 +25,10 @@ $ java -Dparams=literal.id=<UNIQUE_ID> -Durl=http://localhost:8983/solr/<CORENAM
 1. Go to 'Documents'
 2. Select 'Document Type' XML
 3. Add on 'Document' the following XML
-```sh
-<delete><query>*:*</query></delete>
-<commit/>
-```
+
+  ```sh
+  <delete><query>*:*</query></delete>
+  <commit/>
+  ```
 4. Submit
+
