@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/SAMH/ontologies/"
+     xml:base="http://www.semanticweb.org/SAMH/ontologies/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/SAMH/ontologies/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/hasLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/hasLevel">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/LexicalBase"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/hasPatient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/hasPatient">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Patient"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/hasTerm -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/hasTerm">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Term"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/hasTherapist -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/hasTherapist">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Therapist"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/isUpperLevelGlobal -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/isUpperLevelGlobal">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/isUpperLevelIntermediate -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/isUpperLevelIntermediate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/isUpperLevelSpecific -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/isUpperLevelSpecific">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/appointmentDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/appointmentDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/sessionNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/sessionNumber">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/EmotionLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/GlobalLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/LexicalBase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/LexicalBase"/>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/Patient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/Patient"/>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/SpecificLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/Term -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/Term"/>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/Therapist -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/Therapist"/>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/Transcription -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/P003_S1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/P003_S1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+        <sessionNumber rdf:datatype="&xsd;integer">1</sessionNumber>
+        <appointmentDate rdf:datatype="&xsd;dateTime">2015-12-04</appointmentDate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/bem_estar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/bem_estar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/indiferenca -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/indiferenca">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/nao_especificas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/nao_especificas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/negativa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/negativa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/positiva -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/positiva">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+        <isUpperLevelGlobal rdf:resource="http://www.semanticweb.org/SAMH/ontologies/bem_estar"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/surpresa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/surpresa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
