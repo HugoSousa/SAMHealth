@@ -1,0 +1,11 @@
+To get terms of a specific document (example P003_3):
+http://localhost:8983/solr/samh/tvrh?q=*%3A*&fl=text&fq=id:P003_3
+[needs TermVectorComponent in solrconfig.xml and respective field in schema.xml]
+
+
+To get terms of every document (and respective document frequency):
+http://localhost:8983/solr/samh/terms?terms.fl=text&terms.limit=-1
+
+
+The returned tokens are the indexed ones, which means they've been previously analysed and tokenized by Solr.
+For example, it returns "moment" instead of "momento" or "momentaneamente".
