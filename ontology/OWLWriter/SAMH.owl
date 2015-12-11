@@ -48,6 +48,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/SAMH/ontologies/hasSearchResult -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/hasSearchResult">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SearchResult"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/SAMH/ontologies/hasTerm -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/hasTerm">
@@ -70,6 +79,15 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/hasTherapist">
         <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Therapist"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/isRelatedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/isRelatedTo">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SearchResult"/>
     </owl:ObjectProperty>
     
 
@@ -117,6 +135,15 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/appointmentDate">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/score -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/score">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SearchResult"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
     </owl:DatatypeProperty>
     
 
@@ -183,6 +210,12 @@
     
 
 
+    <!-- http://www.semanticweb.org/SAMH/ontologies/SearchResult -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/SearchResult"/>
+    
+
+
     <!-- http://www.semanticweb.org/SAMH/ontologies/SpecificLevel -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel">
@@ -220,24 +253,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/SAMH/ontologies/P003_S1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/P003_S1">
-        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
-        <sessionNumber rdf:datatype="&xsd;integer">1</sessionNumber>
-        <appointmentDate rdf:datatype="&xsd;dateTime">2015-12-04</appointmentDate>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/SAMH/ontologies/bem_estar -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/bem_estar">
-        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.semanticweb.org/SAMH/ontologies/indiferenca -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/indiferenca">
@@ -266,7 +281,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/positiva">
         <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
-        <isUpperLevelGlobal rdf:resource="http://www.semanticweb.org/SAMH/ontologies/bem_estar"/>
     </owl:NamedIndividual>
     
 
