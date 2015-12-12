@@ -1,5 +1,6 @@
 package com.dapi;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -23,6 +24,10 @@ public class LevelsWriter {
 
 
     public static void main(String[] args) {
+
+        System.out.println("***Starting***");
+        long startTime = System.currentTimeMillis();
+
         try {
             manager = OWLManager.createOWLOntologyManager();
 
@@ -60,9 +65,16 @@ public class LevelsWriter {
                             for(Iterator specificIterator = specificLevel.keySet().iterator(); specificIterator.hasNext();) {
                                 String specificLevelString = (String) specificIterator.next();
                                 addLevel(specificLevelString, SPECIFIC_LEVEL, intermediateLevelString);
+
+                                JSONArray specificLevelTerms = (JSONArray)specificLevel.get(specificLevelString);
+                                addTerms(specificLevelString, specificLevelTerms);
                             }
                         }
                     }
+                }else{
+                    JSONArray exceptionalPrimaryLevelTerms = (JSONArray)jsonObject.get(primaryLevelString);
+                    addTerms(primaryLevelString, exceptionalPrimaryLevelTerms);
+
                 }
             }
         } catch (ParseException e) {
@@ -79,52 +91,24 @@ public class LevelsWriter {
         try {
             File file = new File("result.owl");
             manager.saveOntology(ontology, IRI.create(file.toURI()));
-            //manager.saveOntology(ontology, new StreamDocumentTarget(System.out));
+
+            System.out.println("***Populate finished***");
+            long stopTime = System.currentTimeMillis();
+            long elapsedTime = stopTime - startTime;
+            System.out.println("Elapsed Time: " + elapsedTime / 1000.0 + " seconds.");
+
         } catch (OWLOntologyStorageException e) {
             e.printStackTrace();
         }
+    }
 
-        /*
-        OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-        File ontologyFile = new File("SAMH.owl");
-        try {
-            OWLOntology ontology = manager.loadOntologyFromOntologyDocument(ontologyFile);// manager.loadOntologyFromPhysicalURI(URI.create("file://C:/Onto.owl";));
-            IRI ontologyIRI = ontology.getOntologyID().getOntologyIRI().get();
-            System.out.println("ID: " + ontologyIRI);
+    private static void addTerms(String levelString, JSONArray levelTerms) throws OWLOntologyStorageException {
+        Iterator levelTermsIterator = levelTerms.iterator();
 
-
-            OWLDataFactory factory = manager.getOWLDataFactory();
-            //ABARROTADO
-            OWLIndividual abarrotado = factory.getOWLNamedIndividual(IRI.create(ontologyIRI + "term/abarrotado"));
-
-            OWLClass term = factory.getOWLClass(IRI.create(ontologyIRI + "Term"));
-
-            //abarrotado is a term
-            OWLClassAssertionAxiom termClassAssertion = factory.getOWLClassAssertionAxiom(term, abarrotado);
-
-
-            //FADIGA
-            OWLIndividual fadiga = factory.getOWLNamedIndividual(IRI.create(ontologyIRI + "fadiga"));
-            OWLClass specificLevel = factory.getOWLClass(IRI.create(ontologyIRI + "SpecificLevel"));
-
-            OWLClassAssertionAxiom specificLevelClassAssertion = factory.getOWLClassAssertionAxiom(specificLevel, fadiga);
-
-            OWLObjectProperty hasTerm = factory.getOWLObjectProperty(IRI.create(ontologyIRI + "hasTerm"));
-            OWLObjectPropertyAssertionAxiom hasTerm1 = factory.getOWLObjectPropertyAssertionAxiom(hasTerm, fadiga, abarrotado);
-
-            //add all relations
-            manager.addAxiom(ontology, termClassAssertion);
-            manager.addAxiom(ontology, specificLevelClassAssertion);
-            manager.addAxiom(ontology, hasTerm1);
-            System.out.println("RDF/XML: ");
-            manager.saveOntology(ontology, new StreamDocumentTarget(System.out));
-        } catch (OWLOntologyCreationException e) {
-            e.printStackTrace();
-        } catch (OWLOntologyStorageException e) {
-            e.printStackTrace();
+        while (levelTermsIterator.hasNext()) {
+            String term = (String)levelTermsIterator.next();
+            addTerm(term, levelString);
         }
-        */
-
     }
 
     public static void addLevel(String levelIndividual, String emotionLevel, String parentLevelIndividual) throws OWLOntologyCreationException, OWLOntologyStorageException {
@@ -161,6 +145,28 @@ public class LevelsWriter {
         manager.saveOntology(ontology);
     }
 
+    public static void addTerm(String term, String level) throws OWLOntologyStorageException {
+        OWLDataFactory factory = manager.getOWLDataFactory();
+
+        term = term.replaceAll(" ", "_");
+        level = level.replaceAll(" ", "_");
+
+        OWLIndividual individual = factory.getOWLNamedIndividual(IRI.create(ontologyIRI + "term/" + term));
+        OWLClass termClass = factory.getOWLClass(IRI.create(ontologyIRI + "Term" ));
+
+        OWLClassAssertionAxiom termClassAssertion = factory.getOWLClassAssertionAxiom(termClass, individual);
+        manager.addAxiom(ontology, termClassAssertion);
+
+        OWLObjectProperty hasTerm = factory.getOWLObjectProperty(IRI.create(ontologyIRI + "hasTerm"));
+        OWLIndividual parentLevel = factory.getOWLNamedIndividual(IRI.create(ontologyIRI + level));
+        OWLObjectPropertyAssertionAxiom isUpperLevelAssertion = factory.getOWLObjectPropertyAssertionAxiom(hasTerm, parentLevel, individual);
+        manager.addAxiom(ontology, isUpperLevelAssertion);
+
+        manager.saveOntology(ontology);
+
+    }
+
+    /*
     public static void createNewOnto() throws OWLOntologyCreationException, OWLOntologyStorageException {
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
         IRI ontologyIRI = IRI.create("http://example.com/owlapi/families");
@@ -188,6 +194,6 @@ public class LevelsWriter {
 
         System.out.println("RDF/XML: ");
         manager.saveOntology(ont, new StreamDocumentTarget(System.out));
-
     }
+    */
 }
