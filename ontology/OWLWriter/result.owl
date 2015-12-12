@@ -1,0 +1,922 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/SAMH/ontologies/"
+     xml:base="http://www.semanticweb.org/SAMH/ontologies/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/SAMH/ontologies/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/hasLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/hasLevel">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/LexicalBase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/hasPatient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/hasPatient">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Patient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/hasTerm -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/hasTerm">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Term"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/hasTherapist -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/hasTherapist">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Therapist"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/isUpperLevelGlobal -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/isUpperLevelGlobal">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/isUpperLevelIntermediate -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/isUpperLevelIntermediate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/isUpperLevelSpecific -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/isUpperLevelSpecific">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/appointmentDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/appointmentDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/sessionNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/sessionNumber">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/EmotionLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/GlobalLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/LexicalBase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/LexicalBase"/>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/Patient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/Patient"/>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/SpecificLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EmotionLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/Term -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/Term"/>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/Therapist -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/Therapist"/>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/Transcription -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/ADMIRAÇÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/ADMIRAÇÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/AFEIÇÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/AFEIÇÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/ADMIRAÇÃO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/AMOR"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/ATRACÇÃO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/DESEJO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/AGITAÇÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/AGITAÇÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/AGRADO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/AGRADO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/AGRESSIVIDADE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/AGRESSIVIDADE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/CRUELDADE"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IRA"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/ORGULHO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/RAIVA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/ALEGRIA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/ALEGRIA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/ALERTA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/ALERTA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/ALÍVIO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/ALÍVIO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/APAZIGUAR"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/LIBERTAÇÃO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/AMOR -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/AMOR">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/ANGÚSTIA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/ANGÚSTIA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/ANSIEDADE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/ANSIEDADE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/MEDO"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/TENSÃO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/APATIA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/APATIA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/APAZIGUAR -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/APAZIGUAR">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/ATRACÇÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/ATRACÇÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/AUDÁCIA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/AUDÁCIA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/BEM_ESTAR -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/BEM_ESTAR">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/ALÍVIO"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/ENTUSIASMO"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/FELICIDADE"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/LUCIDEZ"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SATISFAÇÃO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/BENEVOLÊNCIA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/BENEVOLÊNCIA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/AFEIÇÃO"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GENTILEZA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/BONDADE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/BONDADE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/CALMA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/CALMA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/RELAXAMENTO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/TRANQUILIDADE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/CHORO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/CHORO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/CORAGEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/CORAGEM">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/AUDÁCIA"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EXTROVERSÃO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/CRUELDADE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/CRUELDADE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/DEPRESSÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/DEPRESSÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/APATIA"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/FADIGA"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/TRISTEZA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/DESAGRADO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/DESAGRADO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/DESEJO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/DESEJO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/DESGOSTO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/DESGOSTO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/DESIQUILÍBRIO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/DESIQUILÍBRIO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/DESPREZO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/DESPREZO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/DOENÇA_MENTAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/DOENÇA_MENTAL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/DOR -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/DOR">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/DOÇURA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/DOÇURA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/DRAMA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/DRAMA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/EMOÇÕES_NÃO_ESPECIFICAS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/EMOÇÕES_NÃO_ESPECIFICAS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/ENTUSIASMO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/ENTUSIASMO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/ALEGRIA"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/ALERTA"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/VIVACIDADE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/EQUILÍBRIO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/EQUILÍBRIO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/ESTIMA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/ESTIMA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/EXTROVERSÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/EXTROVERSÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/FADIGA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/FADIGA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/FELICIDADE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/FELICIDADE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/FELIZ"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PRAZER"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/RISO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/FELIZ -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/FELIZ">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/FRUSTRAÇÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/FRUSTRAÇÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/GENTILEZA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/GENTILEZA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/BONDADE"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/DOÇURA"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/HUMILDADE"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PACIÊNCIA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/HUMILDADE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/HUMILDADE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/HUMILHAÇÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/HUMILHAÇÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/INDIFERENÇA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/INDIFERENÇA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/INQUIETUDE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/INQUIETUDE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/INSATISFAÇÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/INSATISFAÇÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/DESAGRADO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/FRUSTRAÇÃO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/HUMILHAÇÃO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/INTROVERSÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/INTROVERSÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/IRA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/IRA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/IRRITAÇÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/IRRITAÇÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/LIBERTAÇÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/LIBERTAÇÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/LOUCURA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/LOUCURA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/DESIQUILÍBRIO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/DOENÇA_MENTAL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/LUCIDEZ -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/LUCIDEZ">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/EQUILÍBRIO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SAÚDE_MENTAL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/MALEVOLÊNCIA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/MALEVOLÊNCIA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/AGRESSIVIDADE"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/ÓDIO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/MAL_ESTAR -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/MAL_ESTAR">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/DEPRESSÃO"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/INSATISFAÇÃO"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/LOUCURA"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PERTURBAÇÃO"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SOFRIMENTO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/MEDO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/MEDO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/INTROVERSÃO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PAVOR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/NEGATIVA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/NEGATIVA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+        <isUpperLevelGlobal rdf:resource="http://www.semanticweb.org/SAMH/ontologies/ANSIEDADE"/>
+        <isUpperLevelGlobal rdf:resource="http://www.semanticweb.org/SAMH/ontologies/MALEVOLÊNCIA"/>
+        <isUpperLevelGlobal rdf:resource="http://www.semanticweb.org/SAMH/ontologies/MAL_ESTAR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/ORGULHO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/ORGULHO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/PACIÊNCIA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/PACIÊNCIA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/PAVOR -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/PAVOR">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/PERTURBAÇÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/PERTURBAÇÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/AGITAÇÃO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/REMORSO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/POSITIVA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/POSITIVA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+        <isUpperLevelGlobal rdf:resource="http://www.semanticweb.org/SAMH/ontologies/BEM_ESTAR"/>
+        <isUpperLevelGlobal rdf:resource="http://www.semanticweb.org/SAMH/ontologies/BENEVOLÊNCIA"/>
+        <isUpperLevelGlobal rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SEGURANÇA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/PRAZER -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/PRAZER">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/RAIVA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/RAIVA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/RELAXAMENTO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/RELAXAMENTO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/REMORSO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/REMORSO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/RESSENTIMENTO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/RESSENTIMENTO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/RISO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/RISO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/SACIEDADE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/SACIEDADE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/SATISFAÇÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/SATISFAÇÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/AGRADO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/ESTIMA"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SACIEDADE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/SAÚDE_MENTAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/SAÚDE_MENTAL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/SEGURANÇA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/SEGURANÇA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/GlobalLevel"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/CALMA"/>
+        <isUpperLevelIntermediate rdf:resource="http://www.semanticweb.org/SAMH/ontologies/CORAGEM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/SOFRIMENTO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/SOFRIMENTO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/CHORO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/DOR"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/DRAMA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/SURPRESA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/SURPRESA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/PrimaryLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/TENSÃO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/TENSÃO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/ANGÚSTIA"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/INQUIETUDE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/TRANQUILIDADE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/TRANQUILIDADE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/TRISTEZA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/TRISTEZA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/VIVACIDADE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/VIVACIDADE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/SpecificLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/SAMH/ontologies/ÓDIO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/ÓDIO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IntermediateLevel"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/DESGOSTO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/DESPREZO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/IRRITAÇÃO"/>
+        <isUpperLevelSpecific rdf:resource="http://www.semanticweb.org/SAMH/ontologies/RESSENTIMENTO"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.1.2.20151107-1355) https://github.com/owlcs/owlapi -->
+
