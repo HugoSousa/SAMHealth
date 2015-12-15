@@ -45,7 +45,7 @@ public class TranscriptionContentWriter {
         factory = manager.getOWLDataFactory();
         try {
 
-            URL url = new URL("http://localhost:8983/solr/samh/select?q=*:*&fl=id,content&wt=json");
+            URL url = new URL("http://localhost:8983/solr/samh/select?q=*:*&fl=id,content&wt=json&rows=999");
             InputStream is = url.openStream();
 
             String content = IOUtils.toString(is);

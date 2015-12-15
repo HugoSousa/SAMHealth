@@ -62,6 +62,7 @@ public class TranscriptionPatientTherapistWriter {
                     manager.addAxiom(ontology, patientClassAssertion);
 
                     String therapistString = (String)infoJSON.get("therapist");
+                    therapistString = therapistString.replaceAll(" ", "_");
                     OWLIndividual therapistIndividual = factory.getOWLNamedIndividual(IRI.create(ontologyIRI + therapistString));
                     OWLClass therapistLevel = factory.getOWLClass(IRI.create(ontologyIRI + "Therapist" ));
                     OWLClassAssertionAxiom therapistClassAssertion = factory.getOWLClassAssertionAxiom(therapistLevel, therapistIndividual);

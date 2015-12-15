@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1450195186808" name="duplicate:http://www.semanticweb.org/SAMH/ontologies/" uri="SAMH.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1450195186808" name="duplicate:http://www.semanticweb.org/SAMH/ontologies/" uri="SAMH2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1450206001229" name="duplicate:http://www.semanticweb.org/SAMH/ontologies/" uri="SAMH.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1450206001229" name="duplicate:http://www.semanticweb.org/SAMH/ontologies/" uri="SAMH2.owl"/>
     </group>
 </catalog>
