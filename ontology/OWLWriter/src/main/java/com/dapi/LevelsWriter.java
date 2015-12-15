@@ -1,15 +1,24 @@
 package com.dapi;
 
+import java.io.*;
+import java.util.Iterator;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.io.StreamDocumentTarget;
-import org.semanticweb.owlapi.model.*;
-
-import java.io.*;
-import java.util.Iterator;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLIndividual;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 
 public class LevelsWriter {
 
@@ -31,7 +40,7 @@ public class LevelsWriter {
         try {
             manager = OWLManager.createOWLOntologyManager();
 
-            File ontologyFile = new File("SAMH.owl");
+            File ontologyFile = new File("SAMH2.owl");
             try {
                 ontology = manager.loadOntologyFromOntologyDocument(ontologyFile);
             } catch (OWLOntologyCreationException e) {

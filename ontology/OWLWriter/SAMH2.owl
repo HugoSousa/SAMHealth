@@ -1899,7 +1899,6 @@
         <hasTerm rdf:resource="http://www.semanticweb.org/SAMH/ontologies/term/decepÃ§Ã£o"/>
         <hasTerm rdf:resource="http://www.semanticweb.org/SAMH/ontologies/term/desagradÃ¡vel"/>
         <hasTerm rdf:resource="http://www.semanticweb.org/SAMH/ontologies/term/desilusÃ£o"/>
-        <hasTerm rdf:resource="http://www.semanticweb.org/SAMH/ontologies/term/frÃ­volo"/>
     </owl:NamedIndividual>
     
 
@@ -38710,14 +38709,6 @@
     <!-- http://www.semanticweb.org/SAMH/ontologies/term/frÃ¡gil -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/term/frÃ¡gil">
-        <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Term"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/SAMH/ontologies/term/frÃ­volo -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/SAMH/ontologies/term/frÃ­volo">
         <rdf:type rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Term"/>
     </owl:NamedIndividual>
     
