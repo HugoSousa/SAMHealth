@@ -7,3 +7,6 @@ transcriptions/**/*.doc
 
 web/public/transcriptions/**/*.docx
 web/public/transcriptions/**/*.doc
+ontology/OWLWriter/transcriptions/**/*.docx
+ontology/OWLWriter/transcriptions/**/*.doc
+

@@ -1,0 +1,33 @@
+{
+	"patient": "P413",
+	"therapist": "Dra. Patricia Pinheiro",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": null,
+			"file": "P413 SESSAO 1.docx"
+		},
+		{
+			"number": "4",
+			"date": "2013-09-24",
+			"file": "p413 sessao 4.docx"
+		},
+		{
+			"number": "8",
+			"date": null,
+			"file": "P413  SESSAO 8.docx"
+		},
+		{
+			"number": "12",
+			"date": null,
+			"file": "P413 sessao12.docx"
+		},
+		{
+			"number": "16",
+			"date": null,
+			"file": "P413 transcricao 16.docx"
+		}
+	]
+	
+}

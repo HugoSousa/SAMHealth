@@ -1,0 +1,83 @@
+{
+	"patient": "P010",
+	"therapist": "Dra. Carla Cunha",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": "2012-10-19",
+			"file": "P010_S1.docx"
+		},
+		{
+			"number": "3",
+			"date": "2012-04-12",
+			"file": "P010_S3.docx"
+		},
+		{
+			"number": "4",
+			"date": "2011-05-09",
+			"file": "P010_S4.docx"
+		},
+		{
+			"number": "5",
+			"date": "2012-05-16",
+			"file": "P010_S5.docx"
+		},
+		{
+			"number": "6",
+			"date": null,
+			"file": "P010_S6.docx"
+		},
+		{
+			"number": "7",
+			"date": null,
+			"file": "P010_S7.docx"
+		},		
+		{
+			"number": "8",
+			"date": "2011-10-19",
+			"file": "P010_S8.docx"
+		},		
+		{
+			"number": "9",
+			"date": null,
+			"file": "P010_S9.docx"
+		},
+		{
+			"number": "10",
+			"date": null,
+			"file": "P010_S10.docx"
+		},
+		{
+			"number": "11",
+			"date": null,
+			"file": "P010_S11.docx"
+		},
+		{
+			"number": "12",
+			"date": "2011-06-13",
+			"file": "P010_S12.docx"
+		},
+		{
+			"number": "13",
+			"date": null,
+			"file": "P010_S13.docx"
+		},
+		{
+			"number": "14",
+			"date": null,
+			"file": "P010_S14.docx"
+		},
+		{
+			"number": "15",
+			"date": null,
+			"file": "P010_S15.docx"
+		},
+		{
+			"number": "16",
+			"date": "2011-09-27",
+			"file": "P010_S16.docx"
+		}
+	]
+	
+}

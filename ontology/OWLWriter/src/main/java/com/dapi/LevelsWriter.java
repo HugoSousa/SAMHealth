@@ -31,7 +31,7 @@ public class LevelsWriter {
         try {
             manager = OWLManager.createOWLOntologyManager();
 
-            File ontologyFile = new File("SAMH.owl");
+            File ontologyFile = new File("SAMH2.owl");
             try {
                 ontology = manager.loadOntologyFromOntologyDocument(ontologyFile);
             } catch (OWLOntologyCreationException e) {
@@ -43,7 +43,7 @@ public class LevelsWriter {
             Reader file = new FileReader("lexical.json");
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject)jsonParser.parse(file);
-            //System.out.println(jsonObject);
+            System.out.println(jsonObject);
 
             for(Iterator iterator = jsonObject.keySet().iterator(); iterator.hasNext();) {
                 //add level
@@ -88,18 +88,14 @@ public class LevelsWriter {
         }
 
 
-        try {
-            File file = new File("result.owl");
-            manager.saveOntology(ontology, IRI.create(file.toURI()));
+        //File file = new File("result.owl");
+        //manager.saveOntology(ontology, IRI.create(file.toURI()));
 
-            System.out.println("***Populate finished***");
-            long stopTime = System.currentTimeMillis();
-            long elapsedTime = stopTime - startTime;
-            System.out.println("Elapsed Time: " + elapsedTime / 1000.0 + " seconds.");
+        System.out.println("***Populate finished***");
+        long stopTime = System.currentTimeMillis();
+        long elapsedTime = stopTime - startTime;
+        System.out.println("Elapsed Time: " + elapsedTime / 1000.0 + " seconds.");
 
-        } catch (OWLOntologyStorageException e) {
-            e.printStackTrace();
-        }
     }
 
     private static void addTerms(String levelString, JSONArray levelTerms) throws OWLOntologyStorageException {

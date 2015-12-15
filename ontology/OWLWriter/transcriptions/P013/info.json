@@ -1,0 +1,48 @@
+{
+	"patient": "P013",
+	"therapist": "X.",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": "2011-05-02",
+			"file": "P013_S1.doc"
+		},
+		{
+			"number": "2",
+			"date": null,
+			"file": "P013_S2.docx"
+		},
+		{
+			"number": "3",
+			"date": null,
+			"file": "P013_S3.docx"
+		},
+		{
+			"number": "4",
+			"date": "2011-05-26",
+			"file": "P013_S4.doc"
+		},
+		{
+			"number": "5",
+			"date": null,
+			"file": "P013_S5.docx"
+		},	
+		{
+			"number": "8",
+			"date": "2011-06-27",
+			"file": "P013_S8.doc"
+		},
+		{
+			"number": "12",
+			"date": "2011-09-01",
+			"file": "P013_S12.doc"
+		},
+		{
+			"number": "16",
+			"date": "2011-10-10",
+			"file": "P013_S16.doc"
+		}
+	]
+	
+}

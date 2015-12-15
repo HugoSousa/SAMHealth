@@ -1,0 +1,33 @@
+{
+	"patient": "P342",
+	"therapist": "Dra. Patricia Pinheiro",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": "2013-09-24",
+			"file": "p342  s1.docx"
+		},
+		{
+			"number": "4",
+			"date": "2013-10-10",
+			"file": "p342 s4.docx"
+		},
+		{
+			"number": "8",
+			"date": "2013-01-21",
+			"file": "P342, S 8.docx"
+		},
+		{
+			"number": "12",
+			"date": "2013-01-25",
+			"file": "P342, SESSAO 12.docx"
+		},
+		{
+			"number": "16",
+			"date": "2014-01-09",
+			"file": "P342 s16.docx"
+		}
+	]
+	
+}
