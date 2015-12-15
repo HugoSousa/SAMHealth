@@ -1,0 +1,33 @@
+{
+	"patient": "P177",
+	"therapist": "Dra. Isabel Basto",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": "2011-12-06",
+			"file": "p177_sessao1.docx"
+		},
+		{
+			"number": "4",
+			"date": "2012-01-04",
+			"file": "p177_Sessao4.docx"
+		},
+		{
+			"number": "8",
+			"date": "2012-02-02",
+			"file": "P177 sessao8.docx"
+		},
+		{
+			"number": "12",
+			"date": "2012-04-12",
+			"file": "P177 sessao 12.docx"
+		},
+		{
+			"number": "16",
+			"date": "2012-07-30",
+			"file": "P177 sessao16.docx"
+		}
+	]
+	
+}

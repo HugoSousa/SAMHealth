@@ -165,6 +165,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/SAMH/ontologies/transcriptionFile -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/SAMH/ontologies/transcriptionFile">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/SAMH/ontologies/Transcription"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //

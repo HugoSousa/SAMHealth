@@ -1,0 +1,33 @@
+{
+	"patient": "P056",
+	"therapist": "Dra. Eunice Barbosa",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": "2012-09-04",
+			"file": "P056_S1.docx"
+		},
+		{
+			"number": "4",
+			"date": null,
+			"file": "P056_S4.docx"
+		},
+		{
+			"number": "8",
+			"date": null,
+			"file": "P056_S8.docx"
+		},
+		{
+			"number": "12",
+			"date": null,
+			"file": "P056_S12.docx"
+		},
+		{
+			"number": "16",
+			"date": null,
+			"file": "P056_S16.docx"
+		}
+	]
+	
+}

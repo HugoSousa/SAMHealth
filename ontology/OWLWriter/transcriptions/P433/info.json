@@ -1,0 +1,33 @@
+{
+	"patient": "P433",
+	"therapist": "Dra. Ines Mendes",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": "2013-10-04",
+			"file": "P. 433 sessao 1.docx"
+		},
+		{
+			"number": "4",
+			"date": null,
+			"file": "P. 433 sessao 4.docx"
+		},
+		{
+			"number": "8",
+			"date": null,
+			"file": "P. 433 sessao 8.docx"
+		},
+		{
+			"number": "12",
+			"date": null,
+			"file": "P. 433 sessao 12.docx"
+		},
+		{
+			"number": "16",
+			"date": null,
+			"file": "P. 433 sessao 16.docx"
+		}
+	]
+	
+}

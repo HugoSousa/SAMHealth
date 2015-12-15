@@ -1,0 +1,88 @@
+{
+	"patient": "P213",
+	"therapist": "Dr. Joao Salgado",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": null,
+			"file": "P213_S1.docx"
+		},
+		{
+			"number": "2",
+			"date": "2012-10-16",
+			"file": "P213_S2.docx"
+		},
+		{
+			"number": "3",
+			"date": "2013-06-05",
+			"file": "P213_S3.docx"
+		},
+		{
+			"number": "4",
+			"date": "2012-02-22",
+			"file": "P213_S4.docx"
+		},
+		{
+			"number": "5",
+			"date": "2013-08-13",
+			"file": "P213_S5.docx"
+		},
+		{
+			"number": "6",
+			"date": "2012-10-09",
+			"file": "P213_S6.docx"
+		},
+		{
+			"number": "7",
+			"date": "2012-09-25",
+			"file": "P213_S7.docx"
+		},
+		{
+			"number": "8",
+			"date": "2012-02-22",
+			"file": "P213_S8.docx"
+		},
+		{
+			"number": "9",
+			"date": "2012-11-09",
+			"file": "P213_S9.docx"
+		},
+		{
+			"number": "10",
+			"date": null,
+			"file": "P213_s10.docx"
+		},
+		{
+			"number": "11",
+			"date": null,
+			"file": "P213_s11.docx"
+		},
+		{
+			"number": "12",
+			"date": "2012-06-08",
+			"file": "P213_S12.docx"
+		},
+		{
+			"number": "13",
+			"date": null,
+			"file": "P213_S13.docx"
+		},
+		{
+			"number": "14",
+			"date": null,
+			"file": "P213_S14.docx"
+		},
+		{
+			"number": "15",
+			"date": null,
+			"file": "P213_S15.docx"
+		},
+		{
+			"number": "16",
+			"date": "2012-07-12",
+			"file": "P213_S16.docx"
+		}
+	]
+	
+}

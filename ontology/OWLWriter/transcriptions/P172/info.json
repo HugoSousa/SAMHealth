@@ -1,0 +1,33 @@
+{
+	"patient": "P172",
+	"therapist": "Dra. Carla Cunha",
+	"sessions":
+	[ 
+		{
+			"number": "1",
+			"date": null,
+			"file": "P 172 S1.docx"
+		},
+		{
+			"number": "4",
+			"date": null,
+			"file": "P172 S4.docx"
+		},
+		{
+			"number": "8",
+			"date": null,
+			"file": "P172 S8.docx"
+		},
+		{
+			"number": "12",
+			"date": null,
+			"file": "P172 S12.docx"
+		},
+		{
+			"number": "16",
+			"date": null,
+			"file": "P172 S16.docx"
+		}
+	]
+	
+}
