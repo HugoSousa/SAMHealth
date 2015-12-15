@@ -49,6 +49,8 @@ public class LevelsWriter {
 
             ontologyIRI = ontology.getOntologyID().getOntologyIRI().get();
 
+            addLexicalBase();
+
             Reader file = new FileReader("lexical.json");
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject)jsonParser.parse(file);
@@ -109,6 +111,17 @@ public class LevelsWriter {
 
     }
 
+    private static void addLexicalBase() {
+        OWLDataFactory factory = manager.getOWLDataFactory();
+
+        OWLIndividual individual = factory.getOWLNamedIndividual(IRI.create(ontologyIRI + "EMOTAIX_PT"));
+
+        OWLClass lexicalBaseClass = factory.getOWLClass(IRI.create(ontologyIRI + "LexicalBase"));
+
+        OWLClassAssertionAxiom lexicalBaseClassAssertion = factory.getOWLClassAssertionAxiom(lexicalBaseClass, individual);
+        manager.addAxiom(ontology, lexicalBaseClassAssertion);
+    }
+
     private static void addTerms(String levelString, JSONArray levelTerms) throws OWLOntologyStorageException {
         Iterator levelTermsIterator = levelTerms.iterator();
 
@@ -132,6 +145,11 @@ public class LevelsWriter {
 
         OWLClassAssertionAxiom levelClassAssertion = factory.getOWLClassAssertionAxiom(level, individual);
         manager.addAxiom(ontology, levelClassAssertion);
+
+        OWLIndividual lexicalBaseIndividual = factory.getOWLNamedIndividual(IRI.create(ontologyIRI + "EMOTAIX_PT"));
+        OWLObjectProperty hasLevel = factory.getOWLObjectProperty(IRI.create(ontologyIRI + "hasLevel"));
+        OWLObjectPropertyAssertionAxiom hasLevelAssertion = factory.getOWLObjectPropertyAssertionAxiom(hasLevel, lexicalBaseIndividual, individual);
+        manager.addAxiom(ontology, hasLevelAssertion);
 
         String upperProperty = null;
         if(emotionLevel.equals(GLOBAL_LEVEL)){
