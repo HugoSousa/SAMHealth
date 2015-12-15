@@ -96,9 +96,11 @@ public class LevelsWriter {
             e.printStackTrace();
         }
 
-
-        //File file = new File("result.owl");
-        //manager.saveOntology(ontology, IRI.create(file.toURI()));
+        try {
+            manager.saveOntology(ontology);
+        } catch (OWLOntologyStorageException e) {
+            e.printStackTrace();
+        }
 
         System.out.println("***Populate finished***");
         long stopTime = System.currentTimeMillis();
@@ -147,7 +149,6 @@ public class LevelsWriter {
             manager.addAxiom(ontology, isUpperLevelAssertion);
         }
 
-        manager.saveOntology(ontology);
     }
 
     public static void addTerm(String term, String level) throws OWLOntologyStorageException {
@@ -166,8 +167,6 @@ public class LevelsWriter {
         OWLIndividual parentLevel = factory.getOWLNamedIndividual(IRI.create(ontologyIRI + level));
         OWLObjectPropertyAssertionAxiom isUpperLevelAssertion = factory.getOWLObjectPropertyAssertionAxiom(hasTerm, parentLevel, individual);
         manager.addAxiom(ontology, isUpperLevelAssertion);
-
-        manager.saveOntology(ontology);
 
     }
 
