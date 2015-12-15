@@ -1,0 +1,157 @@
+//ALL SPECIFIC LEVELS AND THEIR TERMS
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://www.semanticweb.org/SAMH/ontologies/>
+SELECT ?SpecificLevel ?Term 
+WHERE { ?SpecificLevel :hasTerm ?Term . }
+ORDER BY ?SpecificLevel ?Term
+
+//Patients of a Therapist
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://www.semanticweb.org/SAMH/ontologies/>
+
+SELECT DISTINCT ?p
+WHERE {
+	?t a ?Transcription .
+	?t :hasPatient ?p .
+	?t :hasTherapist ?therapist
+	filter( regex(str(?therapist), "Salgado"))
+}
+ORDER BY ?p
+
+//Find Emotion Levels for term
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://www.semanticweb.org/SAMH/ontologies/>
+
+SELECT DISTINCT ?pLevel ?gLevel ?intLevel ?spLevel
+WHERE {
+	?x a ?Term . 
+	{
+		?spLevel :hasTerm ?x .
+		?intLevel :isUpperLevelSpecific ?spLevel .
+		?gLevel :isUpperLevelIntermediate ?intLevel .
+		?pLevel :isUpperLevelGlobal ?gLevel .
+	} 
+	UNION
+	 { 
+		?pLevel :hasTerm ?x . 
+		FILTER NOT EXISTS  { ?upperLevel :isUpperLevelSpecific ?pLevel . }
+	}
+	filter( regex(str(?x), "neutro"))
+}
+
+//Terms of Emotion Level
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://www.semanticweb.org/SAMH/ontologies/>
+
+SELECT DISTINCT (?t as ?terms)
+WHERE {
+	?eLevel a ?EmotionLevel . 
+	{
+		?eLevel :hasTerm ?t
+	} 
+	UNION
+	{
+		?eLevel :isUpperLevelSpecific ?spLevel .
+		?spLevel :hasTerm ?t
+	}
+	UNION
+	{
+		?eLevel :isUpperLevelIntermediate ?intLevel .
+		?intLevel :isUpperLevelSpecific ?spLevel .
+		?spLevel :hasTerm ?t
+	}
+	UNION
+	{
+		?eLevel :isUpperLevelGlobal ?gLevel .
+		?gLevel :isUpperLevelIntermediate ?intLevel .
+		?intLevel :isUpperLevelSpecific ?spLevel .
+		?spLevel :hasTerm ?t
+	}
+	filter( regex(str(?eLevel), "POSITIVA" ))
+}
+ORDER BY ?t
+
+
+//Best Transcription for a Emotion Level
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://www.semanticweb.org/SAMH/ontologies/>
+
+SELECT DISTINCT (?t as ?Transcription) ?score
+WHERE
+{ 
+	?sr rdf:type :SearchResult .
+	?sr :relatesToLevel ?l .
+	?t :hasSearchResult ?sr .
+	?sr :score ?score .
+	filter( regex(str(?l), "AMOR" ))
+}
+ORDER BY DESC(?score)
+LIMIT 1
+
+//Emotions for a transcription
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://www.semanticweb.org/SAMH/ontologies/>
+
+SELECT DISTINCT (?l as ?EmotionLevel) ?score
+WHERE
+{ 
+	?sr rdf:type :SearchResult .
+	?sr :relatesToLevel ?l .
+	?t :hasSearchResult ?sr .
+	?sr :score ?score .
+	filter( regex(str(?t), "P003_13" ))
+}
+ORDER BY DESC(?score)
+
+//Emotions for a Patient
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://www.semanticweb.org/SAMH/ontologies/>
+
+SELECT DISTINCT ?l (SUM(?score) as ?sum)
+WHERE 
+{
+	{
+ 		SELECT DISTINCT ?t ?p
+		WHERE
+		{ 
+			?t a :Transcription .
+			?t :hasPatient ?p .
+			filter( regex(str(?p), "P003" ))
+		}
+	}
+
+	?sr rdf:type :SearchResult .
+	?sr :relatesToLevel ?l .
+	?t :hasSearchResult ?sr .
+	?sr :score ?score .
+}
+GROUP BY ?l
+ORDER BY DESC(?sum)
