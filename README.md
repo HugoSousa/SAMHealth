@@ -1,7 +1,7 @@
 # SAMHealth
-Academic project aiming to take advantage of Information Retrieval techniques to explorar **S**entimental **A**nalysis for **M**ental **H**ealth (**SAMH**).
+Academic project aiming to take advantage of Information Retrieval techniques to explorea **S**entimental **A**nalysis for **M**ental **H**ealth (**SAMH**).
 
-**Note:** Sensitive patient data files are not available in the transcription folder and are cannot be published in this repository.
+**Note:** Sensitive patient data files are not available in the transcription folder and will not be published in this repository.
 
 ### Information Retriveal
 ##### Project description (pt)
