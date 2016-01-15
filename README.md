@@ -1,5 +1,40 @@
 # SAMHealth
-##### Project Configuration
+Academic project aiming to take advantage of Information Retrieval techniques to explorar **S**entimental **A**nalysis for **M**ental **H**ealth (**SAMH**).
+
+**Note:** Sensitive patient data files are not available in the transcription folder and are cannot be published in this repository.
+
+### Information Retriveal
+##### Project description (pt)
+
+Utilizou-se PHP com a framework Slim(para o routing) para o servidor e Javascript com jQuery para o cliente.
+
+Existem duas routes que estão definidas em ./web/app/routes/routes.php: 
+A route /search recebe como parâmetros a query a pesquisar, o número da página e o código do paciente (caso seja feita a filtragem por paciente).
+A route /lexical recebe os níveis da base lexical (primário, global, intermédio, especifico) escolhidos para a pesquisa, o número da página e o código do paciente.
+Através dos níveis da base lexical é feita uma filtragem no csv para obter as palavras pretendidas. Esta transformação é implementada nos scripts contidos na pasta ./web/app/lib/ .
+
+Os templates usados estão definidos em ./web/public/templates.	
+
+Os ficheiros das transcrições devem-se encontrar no diretório ./web/public/transcritions/<ID Paciente>.
+Exemplo:
+
+/transcriptions
+	/P003
+		P003_S1.docx
+		P003_S2.docx
+		...
+	/P010
+		P010_S1.docx
+		...
+	...
+
+O start.cmd é um script que inicia o servidor Solr no core samh que inclui os dados e configurações da plataforma.
+
+O script upload_transcriptions.py serve para indexar as transcrições para o Solr. Estas transcrições deverão encontrar-se na pasta ./transcritions/<ID Paciente>.
+
+Os ficheiros (.doc/.docx) das transcrições não foram incluídos mas encontram-se indexados no core samh no Solr.
+
+##### How to configure a new Solr Core
 
 - Dowload Solr
 - In Solr root folder:
@@ -32,3 +67,13 @@ $ java -Dparams=literal.id=<UNIQUE_ID> -Durl=http://localhost:8983/solr/<CORENAM
   ```
 4. Submit
 
+### Semantic Web (pt)
+
+O povoamento da ontologia (base lexical, terapeutas, pacientes e transcrições) é realizado com a execução de módulos em JAVA.
+Estes módulos encontram-se na pasta ./ontology/OWLWriter/src/main/java/com/dapi.
+Como é necessário obter informações do Solr este deve ser previamente executado.
+
+Este povoamento resulta num ficheiro em OWL Functional Syntax (.owl). 
+O povoamento cria um ficheiro em ./ontology/OWLWriter (SAMH.owl).
+
+Foram criadas diversas queries em Sparql para testar esta ontologia, estas queries encontram-se em ./ontology/OWLWriter (Sparql_queries.rq).
