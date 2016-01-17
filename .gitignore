@@ -9,6 +9,5 @@ web/public/transcriptions/**/*.docx
 web/public/transcriptions/**/*.doc
 ontology/OWLWriter/transcriptions/**/*.docx
 ontology/OWLWriter/transcriptions/**/*.docontology\OWLWriter\SAMH.owl 
-ontology\OWLWriter\SAMH2.owl 
-ontology\OWLWriter\SAMH.owl 
-ontology\OWLWriter\SAMH2.owl 
+
+fix.bat
