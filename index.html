@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>SAMHealth by francisco-maciel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">SAMHealth</h1>
+      <h2 class="project-tagline">SAMH - Sentimental Analysis for Mental Health</h2>
+      <a href="https://github.com/francisco-maciel/SAMHealth" class="btn">View on GitHub</a>
+      <a href="https://github.com/francisco-maciel/SAMHealth/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/francisco-maciel/SAMHealth/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="samhealth" class="anchor" href="#samhealth" aria-hidden="true"><span class="octicon octicon-link"></span></a>SAMHealth</h1>
+
+<p>Academic project aiming to take advantage of Information Retrieval techniques to explorea <strong>S</strong>entimental <strong>A</strong>nalysis for <strong>M</strong>ental <strong>H</strong>ealth (<strong>SAMH</strong>).</p>
+
+<p><strong>Note:</strong> Sensitive patient data files are not available in the transcription folder and will not be published in this repository.</p>
+
+<h3>
+<a id="information-retriveal" class="anchor" href="#information-retriveal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Information Retriveal</h3>
+
+<h5>
+<a id="project-description-pt" class="anchor" href="#project-description-pt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project description (pt)</h5>
+
+<p>Utilizou-se PHP com a framework Slim(para o routing) para o servidor e Javascript com jQuery para o cliente.</p>
+
+<p>Existem duas routes que estão definidas em ./web/app/routes/routes.php: 
+A route /search recebe como parâmetros a query a pesquisar, o número da página e o código do paciente (caso seja feita a filtragem por paciente).
+A route /lexical recebe os níveis da base lexical (primário, global, intermédio, especifico) escolhidos para a pesquisa, o número da página e o código do paciente.
+Através dos níveis da base lexical é feita uma filtragem no csv para obter as palavras pretendidas. Esta transformação é implementada nos scripts contidos na pasta ./web/app/lib/ .</p>
+
+<p>Os templates usados estão definidos em ./web/public/templates. </p>
+
+<p>Os ficheiros das transcrições devem-se encontrar no diretório ./web/public/transcritions/.
+Exemplo:</p>
+
+<p>/transcriptions
+    /P003
+        P003_S1.docx
+        P003_S2.docx
+        ...
+    /P010
+        P010_S1.docx
+        ...
+    ...</p>
+
+<p>O start.cmd é um script que inicia o servidor Solr no core samh que inclui os dados e configurações da plataforma.</p>
+
+<p>O script upload_transcriptions.py serve para indexar as transcrições para o Solr. Estas transcrições deverão encontrar-se na pasta ./transcritions/.</p>
+
+<p>Os ficheiros (.doc/.docx) das transcrições não foram incluídos mas encontram-se indexados no core samh no Solr.</p>
+
+<h5>
+<a id="how-to-configure-a-new-solr-core" class="anchor" href="#how-to-configure-a-new-solr-core" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to configure a new Solr Core</h5>
+
+<ul>
+<li>Dowload Solr</li>
+<li>In Solr root folder:</li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>$ bin<span class="pl-cce">\s</span>olr start
+$ <span class="pl-k">&gt;</span>bin<span class="pl-cce">\s</span>olr create -c <span class="pl-k">&lt;</span>CORENAME<span class="pl-k">&gt;</span> -data_driven_schema_configs -p 8983</pre></div>
+
+<ul>
+<li>Copy the solrconfig.xml and schema.xml files into <code>server/solr/&lt;CORENAME&gt;/conf</code>. This configuration saves the content as a field, which allows it to be queried later.</li>
+<li>Restart the server:</li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>$ bin<span class="pl-cce">\s</span>olr restart -p 8983</pre></div>
+
+<p>Note: Changes only apply to new files uploaded. If you already have posted any documents, you won't see the changes applied, they will have the same fields.</p>
+
+<ul>
+<li>To post a docx/pdf file:</li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>$ java -Dparams=literal.id=<span class="pl-k">&lt;</span>UNIQUE_ID<span class="pl-k">&gt;</span> -Durl=http://localhost:8983/solr/<span class="pl-k">&lt;</span>CORENAME<span class="pl-k">&gt;</span>/update/extract -jar example<span class="pl-cce">\e</span>xampledocs<span class="pl-cce">\p</span>ost.jar <span class="pl-k">&lt;</span>FILE_PATH.docx<span class="pl-k">&gt;</span></pre></div>
+
+<ul>
+<li><p>To delete the documents on Solr:</p></li>
+</ul>
+
+<ol>
+<li>Go to 'Documents'</li>
+<li>Select 'Document Type' XML</li>
+<li>
+<p>Add on 'Document' the following XML</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">&lt;</span>delete<span class="pl-k">&gt;&lt;</span>query<span class="pl-k">&gt;</span><span class="pl-k">*</span>:<span class="pl-k">*</span><span class="pl-k">&lt;</span>/query<span class="pl-k">&gt;&lt;</span>/delete<span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span>commit/<span class="pl-k">&gt;</span></pre></div>
+</li>
+<li>Submit</li>
+</ol>
+
+<h3>
+<a id="semantic-web-pt" class="anchor" href="#semantic-web-pt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Semantic Web (pt)</h3>
+
+<p>O povoamento da ontologia (base lexical, terapeutas, pacientes e transcrições) é realizado com a execução de módulos em JAVA.
+Estes módulos encontram-se na pasta ./ontology/OWLWriter/src/main/java/com/dapi.
+Como é necessário obter informações do Solr este deve ser previamente executado.</p>
+
+<p>Este povoamento resulta num ficheiro em OWL Functional Syntax (.owl). 
+O povoamento cria um ficheiro em ./ontology/OWLWriter (SAMH.owl).</p>
+
+<p>Foram criadas diversas queries em Sparql para testar esta ontologia, estas queries encontram-se em ./ontology/OWLWriter (Sparql_queries.rq).</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/francisco-maciel/SAMHealth">SAMHealth</a> is maintained by <a href="https://github.com/francisco-maciel">francisco-maciel</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-72517657-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
