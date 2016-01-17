@@ -12,3 +12,5 @@ ontology/OWLWriter/transcriptions/**/*.doc
 
 "ontology\OWLWriter\SAMH.owl" 
 "ontology\OWLWriter\SAMH2.owl" 
+ontology\OWLWriter\SAMH.owl 
+ontology\OWLWriter\SAMH2.owl 
