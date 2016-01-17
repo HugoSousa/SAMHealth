@@ -11,3 +11,5 @@ ontology/OWLWriter/transcriptions/**/*.docx
 ontology/OWLWriter/transcriptions/**/*.docontology\OWLWriter\SAMH.owl 
 
 fix.bat
+ontology/OWLWriter/SAMH.owl 
+ontology/WLWriter/SAMH2.owl 
