@@ -9,4 +9,8 @@ web/public/transcriptions/**/*.docx
 web/public/transcriptions/**/*.doc
 ontology/OWLWriter/transcriptions/**/*.docx
 ontology/OWLWriter/transcriptions/**/*.doc
+ontology/OWLWriter/SAMH.owl 
 
+fix.bat
+ontology/OWLWriter/SAMH.owl 
+ontology/WLWriter/SAMH2.owl 
